@@ -1,0 +1,10 @@
+# robots.txt for Aditya Gupta's Portfolio
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://adityaguptadev.me/sitemap.xml
+
+# Disallow assets folder indexing
+Disallow: /assets/
+Disallow: /fonts/
