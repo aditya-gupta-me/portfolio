@@ -1,0 +1,317 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Neue Haas Grotesk";
+  src: url("../fonts/NeueHaasGrotesk-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Neue Haas Grotesk", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: rgba(250, 249, 247, 1);
+  margin: 0;
+  padding: 0;
+  word-spacing: 0.05em;
+  letter-spacing: 0.01em;
+}
+
+body.dark {
+  background-color: #0f0f0f;
+  color: #e5e5e5;
+}
+
+body.dark .bg-white {
+  background-color: #0f0f0f;
+}
+
+body.dark .text-black {
+  color: #e5e5e5;
+}
+
+body.dark .text-black\/40 {
+  color: rgba(229, 229, 229, 0.4);
+}
+
+body.dark .text-black\/50 {
+  color: rgba(229, 229, 229, 0.5);
+}
+
+body.dark .text-black\/70 {
+  color: rgba(229, 229, 229, 0.7);
+}
+
+body.dark .border-black\/5 {
+  border-color: rgba(229, 229, 229, 0.05);
+}
+
+body.dark .border-black\/10 {
+  border-color: rgba(229, 229, 229, 0.1);
+}
+
+body.dark input,
+body.dark textarea {
+  background-color: #1a1a1a;
+  border-color: rgba(229, 229, 229, 0.2);
+  color: #e5e5e5;
+}
+
+body.dark input:focus,
+body.dark textarea:focus {
+  border-color: rgba(229, 229, 229, 0.4);
+}
+
+/* Tab button animations */
+.tab-button {
+  transition: all 0.3s ease;
+  transform-origin: left center;
+}
+
+.tab-button.active {
+  transform: scale(1.15);
+  font-weight: 500;
+}
+
+.tab-button:hover:not(.active) {
+  transform: scale(1.05);
+}
+
+/* Zigzag underline effect */
+.zigzag-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.zigzag-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 6px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%23ef4444' stroke-width='1.5' d='M0,3 l2,-2 l2,2 l2,-2 l2,2 l2,-2 l2,2 l2,-2 l2,2 l2,-2 l2,2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 10px 4px;
+  background-position: 0 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tab-button.active .zigzag-underline::after {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .tab-button.active .zigzag-underline::after {
+    opacity: 1;
+  }
+}
+
+/* Project thumbnail animation */
+.project-thumbnail {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.project-card:hover .project-thumbnail {
+  transform: scale(1.02);
+}
+
+/* Tab content fade in animation */
+.tab-content {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Skill card hover effect */
+.skill-card {
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+}
+
+body.dark .skill-card {
+  background-color: #1a1a1a;
+  border-color: rgba(229, 229, 229, 0.1);
+}
+
+body.dark .skill-card:hover {
+  background-color: #242424;
+  border-color: rgba(229, 229, 229, 0.2);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.dark .theme-toggle {
+  border-color: rgba(229, 229, 229, 0.2);
+}
+
+.theme-toggle:hover {
+  transform: rotate(180deg);
+}
+
+/* Form input styles */
+.form-input {
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: rgba(0, 0, 0, 0.4);
+}
+
+body.dark .form-input:focus {
+  border-color: rgba(229, 229, 229, 0.4);
+}
+
+/* Submit button */
+.submit-btn {
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+}
+
+body.dark .submit-btn {
+  background-color: #e5e5e5;
+  color: #0f0f0f;
+}
+
+body.dark .submit-btn:hover {
+  background-color: #ffffff;
+}
+
+body.dark a:hover {
+  color: #ffffff !important;
+}
+
+/* Sidebar and mobile nav background */
+aside {
+  background-color: rgba(250, 249, 247, 1);
+}
+
+body.dark aside {
+  background-color: #0f0f0f;
+}
+
+.mobile-nav {
+  background-color: rgba(250, 249, 247, 1);
+}
+
+body.dark .mobile-nav {
+  background-color: #0f0f0f;
+}
+
+body.dark .tab-button:hover {
+  color: rgba(229, 229, 229, 0.6) !important;
+}
+
+/* Project card styles */
+body.dark .project-card {
+  background-color: #1a1a1a;
+  border-color: rgba(229, 229, 229, 0.1);
+}
+
+body.dark .project-card:hover {
+  background-color: #1f1f1f;
+  box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1);
+}
+
+body.dark .bg-gradient-to-br {
+  opacity: 0.3;
+}
+
+/* Experience/Education card dates and text colors */
+body.dark .text-black\/30 {
+  color: rgba(229, 229, 229, 0.3);
+}
+
+/* Experience cards hover effect in dark mode */
+body.dark .border.border-black\/10.rounded-lg:hover {
+  box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1);
+}
+
+/* Profile picture */
+.profile-picture {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.profile-picture:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+body.dark .profile-picture {
+  border-color: rgba(229, 229, 229, 0.1);
+}
+
+body.dark .profile-picture:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+}
+
+/* Resume button */
+.resume-button {
+  box-shadow: 0 4px 6px -1px rgba(139, 92, 246, 0.3);
+}
+
+.resume-button:hover {
+  box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.4);
+  transform: translateY(-2px);
+}
+
+body.dark .resume-button {
+  box-shadow: 0 4px 6px -1px rgba(139, 92, 246, 0.5);
+}
+
+body.dark .resume-button:hover {
+  box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.6);
+}
+
+/* Coding platform icons */
+.coding-icon-bg img {
+  transition: filter 0.3s ease;
+  opacity: 0.5;
+}
+
+body.dark .coding-icon-bg img {
+  filter: invert(1);
+  opacity: 0.5;
+}
+
+/* Skills section images (like Postman) */
+.skill-card img {
+  transition: filter 0.3s ease;
+}
+
+body.dark .skill-card img {
+  filter: invert(1);
+}
