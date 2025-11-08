@@ -101,9 +101,9 @@ function About() {
                 challenges.
               </li>
               <li>
-                Big fan of sci-fi content. One of my favorite movies is
-                <em>Blade Runner 2049</em> — a visual masterpiece by Sir Roger
-                Deakins.
+                Big fan of sci-fi content. One of my favorite movies is{" "}
+                <em>Blade Runner 2049</em>, a definite visual masterpiece by Sir
+                Roger Deakins.
               </li>
               <li>
                 Enjoy experimenting with trendy tech and building side projects.
