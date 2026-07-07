@@ -2,6 +2,7 @@ import React from "react";
 
 function About() {
   const resumeFolderUrl = import.meta.env.VITE_RESUME_FOLDER_URL;
+
   return (
     <div id="about-tab" className="tab-content px-4 sm:px-0">
       {/* Two-Column Section: Intro + Image */}
@@ -68,7 +69,7 @@ function About() {
           <h2 className="text-2xl font-medium mb-6">About Me</h2>
           <div className="space-y-6 text-black/50 leading-relaxed">
             <p>
-              21 years old, Currently pursuing my Master's in Computer
+              22 years old, Currently pursuing my Master's in Computer
               Applications after completing undergrad, Bachelor's of Computer
               Applications from{" "}
               <span className="text-black/70">

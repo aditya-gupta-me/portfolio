@@ -10,6 +10,9 @@ import Resume from "./components/Resume";
 import Sidebar from "./components/Sidebar";
 import MobileNav from "./components/MobileNav";
 
+// Analytics import(s)
+import { Analytics } from "@vercel/analytics/react";
+
 function App() {
   const [activeTab, setActiveTab] = useState("about");
   const [darkMode, setDarkMode] = useState(false);
@@ -74,6 +77,7 @@ function App() {
       <main className="flex-1 md:ml-48 px-6 py-8 md:px-16 md:py-16 mt-32 md:mt-0">
         <div className="max-w-3xl">{renderActiveTab()}</div>
       </main>
+      <Analytics />
     </div>
   );
 }

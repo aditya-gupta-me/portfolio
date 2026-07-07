@@ -29,7 +29,7 @@ function Education() {
                 <ul className="space-y-2 text-black/50 leading-relaxed list-disc list-inside">
                   <li>
                     Cumulative GPA:{" "}
-                    <span className="text-black/70 font-medium">8.21</span>
+                    <span className="text-black/70 font-medium">8.71</span>
                   </li>
                   <li>
                     Relevant Coursework: Data Structures & Algorithms,
