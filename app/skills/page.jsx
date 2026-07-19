@@ -1,6 +1,15 @@
-import React from "react";
+export const metadata = {
+  title: "Skills",
+  description: "Technical skills of Aditya Gupta - Java, Python, JavaScript, React, Node.js, PostgreSQL, MongoDB, Docker, AWS and more.",
+  alternates: { canonical: "/skills" },
+  openGraph: {
+    title: "Skills | Aditya Gupta",
+    description: "Technical skills - Java, Python, JavaScript, React, Node.js, PostgreSQL, MongoDB, Docker, AWS.",
+    url: "/skills",
+  },
+};
 
-function Skills() {
+function SkillsPage() {
   return (
     <div id="skills-tab" className="tab-content px-4 sm:px-0">
       <div className="space-y-8">
@@ -294,7 +303,7 @@ function Skills() {
                   src="/postman-svgrepo-com.svg"
                   width="24"
                   height="24"
-                  alt=""
+                  alt="Postman"
                 />
               </div>
               <div className="font-medium">Postman</div>
@@ -369,4 +378,4 @@ function Skills() {
   );
 }
 
-export default Skills;
+export default SkillsPage;

@@ -1,35 +1,44 @@
-import React from "react";
+"use client";
 
-function MobileNav({ activeTab, setActiveTab, darkMode, toggleDarkMode }) {
-  const tabs = [
-    "about",
-    "education",
-    "projects",
-    "skills",
-    "experience",
-    "resume",
-    "contact",
-  ];
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useTheme } from "./ThemeProvider";
+
+const tabs = [
+  { name: "about", href: "/" },
+  { name: "education", href: "/education" },
+  { name: "projects", href: "/projects" },
+  { name: "skills", href: "/skills" },
+  { name: "experience", href: "/experience" },
+  { name: "resume", href: "/resume" },
+  { name: "contact", href: "/contact" },
+];
+
+export default function MobileNav() {
+  const pathname = usePathname();
+  const { darkMode, toggleDarkMode } = useTheme();
+
+  const isActive = (href) => {
+    if (href === "/") return pathname === "/";
+    return pathname === href;
+  };
 
   return (
     <div className="mobile-nav w-full p-6 pt-8 md:hidden fixed top-0 left-0 z-50 border-b border-black/5 dark:border-white/5">
       <div className="flex justify-between items-center mb-4">
         <nav className="flex gap-4 flex-wrap">
           {tabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => {
-                setActiveTab(tab);
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
+            <Link
+              key={tab.name}
+              href={tab.href}
               className={`tab-button relative block text-left transition-colors ${
-                activeTab === tab
+                isActive(tab.href)
                   ? "active text-black dark:text-white"
                   : "text-black/40 dark:text-white/40 hover:text-black/60 dark:hover:text-white/60"
               }`}
             >
-              <span className="zigzag-underline relative z-10">{tab}</span>
-            </button>
+              <span className="zigzag-underline relative z-10">{tab.name}</span>
+            </Link>
           ))}
         </nav>
 
@@ -69,5 +78,3 @@ function MobileNav({ activeTab, setActiveTab, darkMode, toggleDarkMode }) {
     </div>
   );
 }
-
-export default MobileNav;

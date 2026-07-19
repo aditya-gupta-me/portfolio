@@ -1,6 +1,17 @@
-import React from "react";
+export const metadata = {
+  title: "Education",
+  description:
+    "Aditya Gupta's educational background - MCA at VIT Vellore and BCA at Symbiosis International University.",
+  alternates: { canonical: "/education" },
+  openGraph: {
+    title: "Education | Aditya Gupta",
+    description:
+      "Aditya Gupta's educational background - MCA at VIT Vellore and BCA at Symbiosis International University.",
+    url: "/education",
+  },
+};
 
-function Education() {
+export default function EducationPage() {
   return (
     <div id="education-tab" className="tab-content px-4 sm:px-0">
       <div className="space-y-8">
@@ -32,7 +43,7 @@ function Education() {
                     <span className="text-black/70 font-medium">8.71</span>
                   </li>
                   <li>
-                    Relevant Coursework: Data Structures & Algorithms,
+                    Relevant Coursework: Data Structures &amp; Algorithms,
                     Object-Oriented Programming, Database Management Systems,
                     Network and Communication, Cloud Computing, Cybersecurity,
                     Software Engineering
@@ -80,5 +91,3 @@ function Education() {
     </div>
   );
 }
-
-export default Education;

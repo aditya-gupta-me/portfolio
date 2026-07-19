@@ -1,6 +1,17 @@
-import React from "react";
+export const metadata = {
+  title: "Experience",
+  description:
+    "Work experience of Aditya Gupta - Backend Engineer at Aarvasa, Video Editor at Contour Education, and Head of Video Editing at Youth India Foundation.",
+  alternates: { canonical: "/experience" },
+  openGraph: {
+    title: "Experience | Aditya Gupta",
+    description:
+      "Work experience - Backend Engineer, Video Editor, Head of Video Editing.",
+    url: "/experience",
+  },
+};
 
-function Experience() {
+export default function ExperiencePage() {
   return (
     <div id="experience-tab" className="tab-content px-4 sm:px-0">
       <div className="space-y-8">
@@ -112,5 +123,3 @@ function Experience() {
     </div>
   );
 }
-
-export default Experience;

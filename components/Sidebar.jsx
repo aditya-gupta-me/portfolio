@@ -1,31 +1,43 @@
-import React from "react";
+"use client";
 
-function Sidebar({ activeTab, setActiveTab, darkMode, toggleDarkMode }) {
-  const tabs = [
-    "about",
-    "education",
-    "projects",
-    "skills",
-    "experience",
-    "resume",
-    "contact",
-  ];
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useTheme } from "./ThemeProvider";
+
+const tabs = [
+  { name: "about", href: "/" },
+  { name: "education", href: "/education" },
+  { name: "projects", href: "/projects" },
+  { name: "skills", href: "/skills" },
+  { name: "experience", href: "/experience" },
+  { name: "resume", href: "/resume" },
+  { name: "contact", href: "/contact" },
+];
+
+export default function Sidebar() {
+  const pathname = usePathname();
+  const { darkMode, toggleDarkMode } = useTheme();
+
+  const isActive = (href) => {
+    if (href === "/") return pathname === "/";
+    return pathname === href;
+  };
 
   return (
     <aside className="w-48 flex-shrink-0 p-8 pt-16 fixed left-0 top-0 h-screen hidden md:block">
       <nav className="flex flex-col gap-3">
         {tabs.map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
+          <Link
+            key={tab.name}
+            href={tab.href}
             className={`tab-button relative block text-left transition-colors ${
-              activeTab === tab
+              isActive(tab.href)
                 ? "active text-black dark:text-white"
                 : "text-black/40 dark:text-white/40 hover:text-black/60 dark:hover:text-white/60"
             }`}
           >
-            <span className="zigzag-underline relative z-10">{tab}</span>
-          </button>
+            <span className="zigzag-underline relative z-10">{tab.name}</span>
+          </Link>
         ))}
       </nav>
 
@@ -67,5 +79,3 @@ function Sidebar({ activeTab, setActiveTab, darkMode, toggleDarkMode }) {
     </aside>
   );
 }
-
-export default Sidebar;

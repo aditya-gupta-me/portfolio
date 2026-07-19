@@ -1,6 +1,19 @@
-import React from "react";
+import Image from "next/image";
 
-function Projects() {
+export const metadata = {
+  title: "Projects",
+  description:
+    "Portfolio projects by Aditya Gupta - CodeHat, HeyDoc!, Transform Crypt, Sumnote.ai and more full-stack applications.",
+  alternates: { canonical: "/projects" },
+  openGraph: {
+    title: "Projects | Aditya Gupta",
+    description:
+      "Portfolio projects by Aditya Gupta - CodeHat, HeyDoc!, Transform Crypt, Sumnote.ai and more.",
+    url: "/projects",
+  },
+};
+
+export default function ProjectsPage() {
   return (
     <div id="projects-tab" className="tab-content px-4 sm:px-0">
       <div className="space-y-8">
@@ -9,9 +22,11 @@ function Projects() {
           {/* CodeHat Project */}
           <div className="project-card border border-black/10 rounded-lg overflow-hidden bg-white transition-all hover:shadow-lg">
             <div className="overflow-hidden">
-              <img
+              <Image
                 src="/Code_Editor.png"
                 alt="CodeHat Preview"
+                width={600}
+                height={300}
                 className="project-thumbnail w-full h-48 object-cover"
               />
             </div>
@@ -70,9 +85,11 @@ function Projects() {
           {/* HeyDoc Project */}
           <div className="project-card border border-black/10 rounded-lg overflow-hidden bg-white transition-all hover:shadow-lg">
             <div className="overflow-hidden">
-              <img
+              <Image
                 src="/Screen_1.png"
                 alt="HeyDoc! Preview"
+                width={600}
+                height={300}
                 className="project-thumbnail w-full h-48 object-cover"
               />
             </div>
@@ -86,7 +103,7 @@ function Projects() {
               <p className="text-black/50 leading-relaxed mb-4 text-sm">
                 React Native application enabling users to log health data, book
                 appointments, and track symptoms. Implements Naive Bayes
-                classNameification for intelligent disease prediction.
+                classification for intelligent disease prediction.
               </p>
               <div className="text-xs text-black/40 mb-4">
                 React Native • Strapi • Clerk • Cloudinary
@@ -116,10 +133,12 @@ function Projects() {
           <div className="project-card border border-black/10 rounded-lg overflow-hidden bg-white transition-all hover:shadow-lg">
             <div className="overflow-hidden">
               <div className="w-full h-50 flex items-center justify-center text-6xl">
-                <img
+                <Image
                   src="/transform_crypt.png"
+                  alt="Transform Crypt"
+                  width={600}
+                  height={300}
                   className="project-thumbnail w-full h-48 object-cover"
-                  alt="transform-crypt"
                 />
               </div>
             </div>
@@ -164,9 +183,12 @@ function Projects() {
           <div className="project-card border border-black/10 rounded-lg overflow-hidden bg-white transition-all hover:shadow-lg">
             <div className="overflow-hidden">
               <div className="w-full h-48 flex items-center justify-center text-6xl">
-                <img
+                <Image
                   src="/sumnote_ai.png"
                   alt="Sumnote.ai - AI-powered meeting notes summarizer application screenshot"
+                  width={600}
+                  height={300}
+                  className="w-full"
                 />
               </div>
             </div>
@@ -228,5 +250,3 @@ function Projects() {
     </div>
   );
 }
-
-export default Projects;

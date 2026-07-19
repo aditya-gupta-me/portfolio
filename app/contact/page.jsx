@@ -1,6 +1,17 @@
-import React from "react";
+export const metadata = {
+  title: "Contact",
+  description:
+    "Get in touch with Aditya Gupta - Email, LinkedIn, GitHub, X (Twitter), and coding profiles on LeetCode, CodeChef, and Codeforces.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact | Aditya Gupta",
+    description:
+      "Get in touch with Aditya Gupta via email, LinkedIn, GitHub, or X.",
+    url: "/contact",
+  },
+};
 
-function Contact() {
+export default function ContactPage() {
   return (
     <div id="contact-tab" className="tab-content px-4 sm:px-0">
       <div className="space-y-8">
@@ -19,7 +30,7 @@ function Contact() {
             Get In Touch
           </h2>
           <p className="text-black/50 leading-relaxed">
-            I'm always open to discussing new projects, creative ideas, or
+            I&apos;m always open to discussing new projects, creative ideas, or
             opportunities to be part of your vision. Feel free to reach out!
           </p>
         </div>
@@ -168,11 +179,12 @@ function Contact() {
             </div>
             <div className="flex items-center gap-3">
               <span className="text-xl coding-icon-bg">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   width="24"
                   height="24"
                   src="https://img.icons8.com/ios/50/codechef.png"
-                  alt="codechef"
+                  alt="CodeChef"
                 />
               </span>
               <a
@@ -186,11 +198,12 @@ function Contact() {
             </div>
             <div className="flex items-center gap-3">
               <span className="text-xl coding-icon-bg">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   width="24"
                   height="24"
                   src="https://img.icons8.com/external-tal-revivo-regular-tal-revivo/24/external-codeforces-programming-competitions-and-contests-programming-community-logo-regular-tal-revivo.png"
-                  alt="external-codeforces-programming-competitions-and-contests-programming-community-logo-regular-tal-revivo"
+                  alt="Codeforces"
                 />
               </span>
               <a
@@ -208,5 +221,3 @@ function Contact() {
     </div>
   );
 }
-
-export default Contact;

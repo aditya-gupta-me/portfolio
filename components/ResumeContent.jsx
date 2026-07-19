@@ -1,15 +1,9 @@
-import React from "react";
+"use client";
 
-function Resume() {
-  // Drive links are now managed via Vite env variables for easy updates without code changes.
-  // Set these in your .env file (must be prefixed with VITE_ for Vite to expose them):
-  // VITE_RESUME_FOLDER_URL=https://drive.google.com/drive/folders/xxxxxxxxxxxxxxxx?usp=sharing
-  // VITE_RESUME_FILE_ID=yyyyyyyyyyyyyyyyyyyyyyyy
+export default function ResumeContent() {
+  const resumeFolderUrl = process.env.NEXT_PUBLIC_RESUME_FOLDER_URL;
+  const resumeFileId = process.env.NEXT_PUBLIC_RESUME_FILE_ID;
 
-  const resumeFolderUrl = import.meta.env.VITE_RESUME_FOLDER_URL;
-  const resumeFileId = import.meta.env.VITE_RESUME_FILE_ID;
-
-  // If you have a file ID, it will show preview, otherwise shows a message
   const resumeUrl = resumeFileId
     ? `https://drive.google.com/file/d/${resumeFileId}/preview`
     : null;
@@ -69,8 +63,8 @@ function Resume() {
               </h3>
               <p className="text-sm text-black/50 dark:text-white/50 mb-4 max-w-md">
                 To enable inline preview, please add your specific resume file
-                ID in Resume.jsx. For now, click "Open in Drive" above to view
-                your resume.
+                ID in your environment variables. For now, click &quot;Open in
+                Drive&quot; above to view your resume.
               </p>
             </div>
           )}
@@ -85,5 +79,3 @@ function Resume() {
     </div>
   );
 }
-
-export default Resume;
