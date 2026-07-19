@@ -1,6 +1,7 @@
 import Image from 'next/image';
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Aditya Gupta — Full Stack Developer & MCA Student",
   description:
     "MCA student at Vellore Institute of Technology specializing in full-stack web development with MERN stack and competitive programming.",

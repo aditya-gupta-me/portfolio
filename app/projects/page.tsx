@@ -1,6 +1,7 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Projects",
   description:
     "Portfolio projects by Aditya Gupta - CodeHat, HeyDoc!, Transform Crypt, Sumnote.ai and more full-stack applications.",

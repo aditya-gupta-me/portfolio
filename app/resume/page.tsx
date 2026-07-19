@@ -1,6 +1,7 @@
 import ResumeContent from "@/components/ResumeContent";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Resume",
   description:
     "View and download Aditya Gupta's resume - Full Stack Developer specializing in MERN stack and Java.",

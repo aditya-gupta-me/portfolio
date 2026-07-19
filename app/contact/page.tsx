@@ -1,4 +1,6 @@
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Contact",
   description:
     "Get in touch with Aditya Gupta - Email, LinkedIn, GitHub, X (Twitter), and coding profiles on LeetCode, CodeChef, and Codeforces.",

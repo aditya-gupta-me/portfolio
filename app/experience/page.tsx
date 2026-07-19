@@ -1,4 +1,6 @@
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Experience",
   description:
     "Work experience of Aditya Gupta - Backend Engineer at Aarvasa, Video Editor at Contour Education, and Head of Video Editing at Youth India Foundation.",

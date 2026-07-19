@@ -1,4 +1,6 @@
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Education",
   description:
     "Aditya Gupta's educational background - MCA at VIT Vellore and BCA at Symbiosis International University.",

@@ -4,6 +4,7 @@ import Sidebar from "@/components/Sidebar";
 import MobileNav from "@/components/MobileNav";
 import ThemeProvider from "@/components/ThemeProvider";
 import { Analytics } from "@vercel/analytics/next";
+import type { Metadata } from "next";
 
 const neueHaas = localFont({
   src: "../fonts/NeueHaasGrotesk-Medium.ttf",
@@ -12,7 +13,7 @@ const neueHaas = localFont({
   display: "swap",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL("https://adityaguptadev.me"),
   title: {
     default:
@@ -62,7 +63,11 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body className={`${neueHaas.variable} antialiased`}>

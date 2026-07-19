@@ -1,4 +1,6 @@
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Skills",
   description: "Technical skills of Aditya Gupta - Java, Python, JavaScript, React, Node.js, PostgreSQL, MongoDB, Docker, AWS and more.",
   alternates: { canonical: "/skills" },
