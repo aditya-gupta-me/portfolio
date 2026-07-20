@@ -3,15 +3,14 @@ import type { Metadata } from "next";
 import PageContainer from "@/components/PageContainer";
 
 export const metadata: Metadata = {
-  title: "Projects",
-  description:
-    "Portfolio projects by Aditya Gupta - CodeHat, HeyDoc!, Transform Crypt, Sumnote.ai and more full-stack applications.",
-  alternates: { canonical: "/projects" },
+  title: 'Projects',
+  description: 'A selection of my recent work, side projects, and experiments.',
+  alternates: { canonical: '/projects' },
   openGraph: {
-    title: "Projects | Aditya Gupta",
-    description:
-      "Portfolio projects by Aditya Gupta - CodeHat, HeyDoc!, Transform Crypt, Sumnote.ai and more.",
-    url: "/projects",
+    // REPLACE: YOUR_NAME
+    title: 'Projects | YOUR_NAME',
+    description: 'A selection of my recent work, side projects, and experiments.',
+    url: '/projects',
   },
 };
 

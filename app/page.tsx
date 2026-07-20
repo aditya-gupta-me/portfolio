@@ -7,83 +7,59 @@ import FeaturedProjects from "@/components/FeaturedProjects";
 import TechStrip from "@/components/TechStrip";
 import { AnimatedSection } from "@/components/AnimatedSection";
 
+import { projects } from "@/data/projects";
+import { workExperiences } from "@/data/work";
+
 const AVAILABLE = true;
 
+// Generate skills list dynamically
+const projectTags = projects.flatMap((p) => p.tags);
+const workTech = workExperiences.flatMap((w) => w.technologies.map((t) => t.name));
+const stripTech = ['TypeScript', 'React', 'Next.js', 'Node.js', 'PostgreSQL', 'Tailwind CSS']; // Tech strip list
+const uniqueSkills = Array.from(new Set([...projectTags, ...workTech, ...stripTech]));
+
 export const metadata: Metadata = {
-  title: "Aditya Gupta — Full Stack Developer & MCA Student",
-  description:
-    "MCA student at Vellore Institute of Technology specializing in full-stack web development with MERN stack and competitive programming.",
+  // REPLACE: YOUR_NAME, YOUR_POSITIONING_STATEMENT, YOUR_LOCATION
+  title: 'YOUR_NAME — Full Stack Developer',
+  description: 'YOUR_POSITIONING_STATEMENT. Based in YOUR_LOCATION. Open to full-stack and frontend opportunities.',
   openGraph: {
-    title: "Aditya Gupta — Full Stack Developer & MCA Student",
-    description:
-      "MCA student at Vellore Institute of Technology specializing in full-stack web development with MERN stack and competitive programming.",
-    url: "https://adityaguptadev.me/",
-    images: [
-      {
-        url: "https://adityaguptadev.me/PP.jpg",
-        width: 256,
-        height: 256,
-        alt: "Aditya Gupta",
-      },
-    ],
+    // REPLACE: YOUR_NAME, YOUR_POSITIONING_STATEMENT, YOUR_DOMAIN
+    title: 'YOUR_NAME — Full Stack Developer',
+    description: 'YOUR_POSITIONING_STATEMENT.',
+    url: 'https://YOUR_DOMAIN',
+    type: 'website',
   },
   twitter: {
-    card: "summary",
-    title: "Aditya Gupta — Full Stack Developer & MCA Student",
-    description:
-      "MCA student at Vellore Institute of Technology specializing in full-stack web development with MERN stack and competitive programming.",
-    images: ["https://adityaguptadev.me/PP.jpg"],
-  },
-  alternates: {
-    canonical: "https://adityaguptadev.me/",
+    card: 'summary',
+    // REPLACE: YOUR_NAME, YOUR_POSITIONING_STATEMENT
+    title: 'YOUR_NAME — Full Stack Developer',
+    description: 'YOUR_POSITIONING_STATEMENT.',
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Aditya Gupta",
+  // REPLACE: YOUR_NAME, YOUR_POSITIONING_STATEMENT, YOUR_DOMAIN, YOUR_SOCIAL_LINKS
+  name: "YOUR_NAME",
   jobTitle: "Full Stack Developer",
-  description:
-    "MCA student at Vellore Institute of Technology specializing in full-stack web development with MERN stack and competitive programming",
-  image: "https://adityaguptadev.me/PP.jpg",
-  url: "https://adityaguptadev.me/",
+  description: "YOUR_POSITIONING_STATEMENT.",
+  image: "https://YOUR_DOMAIN/PP.jpg",
+  url: "https://YOUR_DOMAIN/",
   sameAs: [
-    "https://github.com/aditya-gupta-me",
-    "https://linkedin.com/in/aditya-gupta-irl",
-    "https://x.com/heytheadee",
-    "https://leetcode.com/u/the_adee/",
-    "https://codeforces.com/profile/the_adee",
-    "https://www.codechef.com/users/the_adee",
+    "https://github.com/YOUR_GITHUB",
+    "https://linkedin.com/in/YOUR_LINKEDIN",
   ],
-  alumniOf: [
-    {
-      "@type": "EducationalOrganization",
-      name: "Vellore Institute of Technology",
-      location: "Vellore, India",
+  hasOccupation: workExperiences.length > 0 ? {
+    "@type": "Role",
+    roleName: workExperiences[0].role,
+    worksFor: {
+      "@type": "Organization",
+      name: workExperiences[0].company,
     },
-    {
-      "@type": "EducationalOrganization",
-      name: "Symbiosis International University",
-      location: "Pune, India",
-    },
-  ],
-  knowsAbout: [
-    "Full Stack Development",
-    "MERN Stack",
-    "React.js",
-    "Node.js",
-    "JavaScript",
-    "Java",
-    "Python",
-    "Competitive Programming",
-    "Web Development",
-    "MongoDB",
-    "PostgreSQL",
-    "Docker",
-    "AWS",
-  ],
-  email: "aditya.gupta.leads@gmail.com",
+    startDate: workExperiences[0].startDate,
+  } : undefined,
+  knowsAbout: uniqueSkills,
 };
 
 export default function About() {
