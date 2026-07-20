@@ -37,7 +37,7 @@ export default function WorkEntryCard({ entry, variant }: WorkEntryCardProps) {
         {/* Left Side */}
         <div className="flex flex-col gap-1.5">
           <div className="flex items-center gap-3">
-            <h2 className="text-sm font-semibold">
+            <h2 className="text-sm font-semibold text-black/70 dark:text-white/70 group-hover:text-black dark:group-hover:text-white transition-colors duration-150">
               {entry.company}
             </h2>
             {isCurrent && <StatusBadge />}

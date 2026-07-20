@@ -5,6 +5,7 @@ import ExperienceSection from "@/components/ExperienceSection";
 import CopyButton from "@/components/CopyButton";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import TechStrip from "@/components/TechStrip";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 const AVAILABLE = true;
 
@@ -95,7 +96,7 @@ export default function About() {
       <PageContainer>
         <div className="flex flex-col space-y-4">
           {/* Avatar and Name row */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 animate-fade-up" style={{ animationDelay: '0ms' }}>
             <div className="w-24 h-24 flex-shrink-0">
               <Image
                 src="/PP.jpg"
@@ -112,28 +113,31 @@ export default function About() {
               <p className="text-black/50 dark:text-white/50 text-sm flex flex-wrap items-center gap-x-1">
                 Full Stack Developer &middot; MCA Student &middot; <CopyButton text="aditya.gupta.leads@gmail.com" />
               </p>
-              {AVAILABLE && (
-                <span className="flex items-center gap-1.5 text-xs text-black/50 dark:text-white/50 pt-1">
-                  <span className="animate-pulse w-2 h-2 rounded-full bg-green-500"></span>
-                  Open to opportunities
-                </span>
-              )}
             </div>
           </div>
+          
+          {AVAILABLE && (
+            <div className="animate-fade-up" style={{ animationDelay: '60ms' }}>
+              <span className="flex items-center gap-1.5 text-xs text-black/50 dark:text-white/50 pt-1">
+                <span className="animate-pulse w-2 h-2 rounded-full bg-green-500"></span>
+                Open to opportunities
+              </span>
+            </div>
+          )}
 
           {/* Short Bio */}
           <div className="flex flex-col gap-1 pt-1">
-            <p className="text-sm text-black dark:text-white">
+            <p className="text-sm text-black dark:text-white animate-fade-up" style={{ animationDelay: '120ms' }}>
               {/* POSITIONING: e.g. "I build fast, production-ready web applications — full-stack with a lean toward frontend." */}
               I build fast, production-ready web applications — full-stack with a lean toward frontend.
             </p>
-            <p className="text-sm text-black/50 dark:text-white/50">
+            <p className="text-sm text-black/50 dark:text-white/50 animate-fade-up" style={{ animationDelay: '160ms' }}>
               Love building cool stuff.
             </p>
           </div>
 
           {/* Social Icons Row */}
-          <div className="flex flex-wrap items-center gap-5 pt-2">
+          <div className="flex flex-wrap items-center gap-5 pt-2 animate-fade-up" style={{ animationDelay: '220ms' }}>
             {[
               { name: "GitHub", icon: "bxl-github", url: "https://github.com/aditya-gupta-me" },
               { name: "LinkedIn", icon: "bxl-linkedin", url: "https://linkedin.com/in/aditya-gupta-irl" },
@@ -160,13 +164,18 @@ export default function About() {
             ))}
           </div>
           
-          <TechStrip />
+          <div className="animate-fade-up" style={{ animationDelay: '280ms' }}>
+            <TechStrip />
+          </div>
         </div>
 
-        <FeaturedProjects />
+        <AnimatedSection>
+          <FeaturedProjects />
+        </AnimatedSection>
 
-
-        <ExperienceSection />
+        <AnimatedSection>
+          <ExperienceSection />
+        </AnimatedSection>
 
       </PageContainer>
     </>
