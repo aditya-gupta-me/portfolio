@@ -2,6 +2,7 @@ import Image from 'next/image';
 import type { Metadata } from "next";
 import PageContainer from "@/components/PageContainer";
 import ExperienceSection from "@/components/ExperienceSection";
+import CopyButton from "@/components/CopyButton";
 
 export const metadata: Metadata = {
   title: "Aditya Gupta — Full Stack Developer & MCA Student",
@@ -81,8 +82,6 @@ const jsonLd = {
 };
 
 export default function About() {
-  const resumeFolderUrl = process.env.NEXT_PUBLIC_RESUME_FOLDER_URL;
-
   return (
     <>
       <script
@@ -90,56 +89,64 @@ export default function About() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <PageContainer>
-      <div id="about-tab">
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12 mb-12">
-          <div className="flex-1 space-y-8">
+        <div className="flex flex-col space-y-4">
+          {/* Avatar and Name row */}
+          <div className="flex items-center gap-4">
+            <Image
+              src="/PP.jpg"
+              alt="Aditya Gupta avatar"
+              width={64}
+              height={64}
+              className="w-16 h-16 rounded-full object-cover"
+            />
             <div>
-              <h1 className="text-3xl md:text-4xl font-medium mb-2">
-                Hi, I'm <span className="text-black">Aditya Gupta</span>
+              <h1 className="text-2xl font-bold dark:text-white">
+                Aditya Gupta
               </h1>
-              <div className="h-1 w-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full mb-6"></div>
+              <p className="text-black/50 dark:text-white/50 text-sm md:text-base flex items-center">
+                Full Stack Developer · MCA Student · aditya.gupta.leads@gmail.com
+                <CopyButton text="aditya.gupta.leads@gmail.com" />
+              </p>
+            </div>
+          </div>
+
+          {/* Short Bio */}
+          <p className="text-black/50 dark:text-white/50">
+            Love building cool stuff.
+          </p>
+
+          {/* Social Icons Row */}
+          <div className="flex flex-wrap items-center gap-5 pt-2">
+            {[
+              { name: "GitHub", icon: "bxl-github", url: "https://github.com/aditya-gupta-me" },
+              { name: "LinkedIn", icon: "bxl-linkedin", url: "https://linkedin.com/in/aditya-gupta-irl" },
+              { name: "X", icon: "bxl-twitter", url: "https://x.com/heytheadee" },
+              { name: "Medium", icon: "bxl-medium", url: "https://medium.com/@YOUR_USERNAME" },
+              { name: "Stack Overflow", icon: "bxl-stack-overflow", url: "https://stackoverflow.com/users/YOUR_USER_ID" },
+              { name: "Email", icon: "bx-envelope", url: "mailto:aditya.gupta.leads@gmail.com" },
+            ].map((social) => (
               <a
-                href={resumeFolderUrl || "https://drive.google.com/drive/folders/1WciHX-lo5PQ3fSjNdcLOrNvSq8hTm8uP?usp=sharing"}
-                target="_blank" rel="noopener noreferrer"
-                className="resume-button inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg font-medium transition-all hover:shadow-lg hover:scale-105"
+                key={social.name}
+                href={social.url}
+                target={social.url.startsWith("mailto:") ? undefined : "_blank"}
+                rel={social.url.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                aria-label={social.name}
+                className="relative group/social text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 15a1 1 0 0 1-.58-.18l-4-2.82a1 1 0 0 1-.24-1.39 1 1 0 0 1 1.4-.24L12 12.76l3.4-2.56a1 1 0 0 1 1.2 1.6l-4 3a1 1 0 0 1-.6.2z"></path>
-                  <path d="M12 17a1 1 0 0 1-1-1V4a1 1 0 0 1 2 0v12a1 1 0 0 1-1 1z"></path>
-                  <path d="M18 21H6a3 3 0 0 1-3-3v-2a1 1 0 0 1 2 0v2a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2a1 1 0 0 1 2 0v2a3 3 0 0 1-3 3z"></path>
-                </svg>
-                Download Resume
+                <i className={`bx ${social.icon} text-xl`}></i>
+                {/* CSS-only Tooltip */}
+                <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-black text-white dark:bg-white dark:text-black text-[10px] font-medium rounded opacity-0 group-hover/social:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                  {social.name}
+                  <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-black dark:border-t-white"></span>
+                </span>
               </a>
-            </div>
-            <div className="space-y-6 text-black/50 leading-relaxed">
-              <p>Master's of Computer Applications student at <span className="text-black/70">Vellore Institute of Technology, Vellore</span> with a passion for building full-stack applications and solving complex problems through code.</p>
-            </div>
-          </div>
-          <div className="flex-shrink-0 md:sticky md:top-8 self-start">
-            <Image src="/PP.jpg" alt="Aditya Gupta" width={256} height={256} className="profile-picture w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-xl mx-auto" style={{ objectPosition: "center 20%" }} />
+            ))}
           </div>
         </div>
-        <div className="space-y-8">
-          <div className="border-t border-black/10 pt-8">
-            <h2 className="text-2xl font-medium mb-6">About Me</h2>
-            <div className="space-y-6 text-black/50 leading-relaxed">
-              <p>22 years old, Currently pursuing my Master's in Computer Applications after completing undergrad, Bachelor's of Computer Applications from <span className="text-black/70">Symbiosis International University</span>. My technical journey spans across web development (mainly in MERN), solving problems through algorithms, and competitive programming.</p>
-              <p>I love solving problems, and I'm constantly tackling <span className="text-black/70">coding challenges</span> across various platforms like Codeforces, LeetCode, CodeChef to name some. I believe in continuous learning and pushing boundaries.</p>
-              <p>Beyond coding, I have experience in video editing and team leadership, having led a video editing department and delivered high-quality educational content.</p>
-              <h3 className="text-lg text-black/70">Hobbies</h3>
-              <ol className="list-disc pl-5">
-                <li>I enjoy playing badminton, especially love clearing sharp shots.</li>
-                <li>Always curious about solving algorithm puzzles and logic challenges.</li>
-                <li>Big fan of sci-fi content. One of my favorite movies is <em>Blade Runner 2049</em>, a definite visual masterpiece by Sir Roger Deakins.</li>
-                <li>Enjoy experimenting with trendy tech and building side projects.</li>
-              </ol>
-            </div>
-          </div>
-        </div>
+
         
         <ExperienceSection />
         
-        </div>
       </PageContainer>
     </>
   );

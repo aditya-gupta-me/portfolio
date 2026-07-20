@@ -16,6 +16,20 @@ export default function WorkEntryCard({ entry, variant }: WorkEntryCardProps) {
   const isPreview = variant === "preview";
   const shouldShowDetails = !isPreview || isExpanded;
 
+  // Dynamically determine if the role is current
+  const isCurrent = (() => {
+    if (entry.endDate.toLowerCase() === "present") return true;
+    const end = new Date(entry.endDate);
+    if (isNaN(end.getTime())) return false;
+    
+    // Set to the last day of the endDate month to cover the entire month
+    end.setMonth(end.getMonth() + 1);
+    end.setDate(0); 
+    
+    const now = new Date();
+    return end >= now;
+  })();
+
   return (
     <div className="group w-full py-6 transition-colors">
       {/* Header Row */}
@@ -26,7 +40,7 @@ export default function WorkEntryCard({ entry, variant }: WorkEntryCardProps) {
             <h2 className={isPreview ? "text-lg font-bold" : "text-xl font-bold"}>
               {entry.company}
             </h2>
-            {entry.isCurrent && <StatusBadge />}
+            {isCurrent && <StatusBadge />}
             {isPreview && (
               <button
                 onClick={() => setIsExpanded(!isExpanded)}

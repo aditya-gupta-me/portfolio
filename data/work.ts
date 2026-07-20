@@ -10,7 +10,6 @@ export interface WorkEntry {
   location: string;
   startDate: string;
   endDate: string | "Present";
-  isCurrent: boolean;
   technologies: Technology[];
   accomplishments: string[];
 }
@@ -22,8 +21,7 @@ export const workExperiences: WorkEntry[] = [
     type: "Remote",
     location: "Remote",
     startDate: "Oct 2025",
-    endDate: "Present",
-    isCurrent: true,
+    endDate: "Mar 2026",
     technologies: [
       { name: "Node.js", icon: "nodedotjs" },
       { name: "Langchain", icon: "langchain" },
@@ -42,7 +40,6 @@ export const workExperiences: WorkEntry[] = [
     location: "Australia",
     startDate: "Aug 2022",
     endDate: "Jan 2023",
-    isCurrent: false,
     technologies: [
       { name: "React", icon: "react" },
       { name: "MongoDB", icon: "mongodb" },
@@ -61,7 +58,6 @@ export const workExperiences: WorkEntry[] = [
     location: "Pune",
     startDate: "Dec 2021",
     endDate: "Feb 2022",
-    isCurrent: false,
     technologies: [
       { name: "Figma", icon: "figma" },
       { name: "Docker", icon: "docker" },

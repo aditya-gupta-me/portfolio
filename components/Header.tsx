@@ -22,7 +22,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-sm bg-white/70 dark:bg-black/70 border-b border-black/10 dark:border-white/10 transition-colors duration-300">
+    <header className="sticky top-0 z-50 w-full backdrop-blur-sm bg-white/70 dark:bg-black/70 transition-colors duration-300">
       <div className="max-w-3xl mx-auto px-6 w-full h-16 flex items-center justify-between">
         <nav className="flex items-center gap-6">
           {NAV_LINKS.map((link) => {
