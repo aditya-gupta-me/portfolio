@@ -26,7 +26,7 @@ export default function ExperienceSection() {
           href="/work"
           className="inline-flex items-center justify-center px-5 py-2 text-sm font-medium rounded-full border border-black/20 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
         >
-          Show all work experiences
+          View full work history →
         </Link>
       </div>
     </section>

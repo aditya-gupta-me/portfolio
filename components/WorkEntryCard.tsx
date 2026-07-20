@@ -56,6 +56,11 @@ export default function WorkEntryCard({ entry, variant }: WorkEntryCardProps) {
             )}
           </div>
           <p className="text-sm text-black/60 dark:text-white/60 font-medium">{entry.role}</p>
+          {isPreview && entry.highlight && (
+            <p className="text-xs text-black/50 dark:text-white/50 pt-0.5">
+              {entry.highlight}
+            </p>
+          )}
         </div>
 
         {/* Right Side */}

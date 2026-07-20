@@ -3,6 +3,10 @@ import type { Metadata } from "next";
 import PageContainer from "@/components/PageContainer";
 import ExperienceSection from "@/components/ExperienceSection";
 import CopyButton from "@/components/CopyButton";
+import FeaturedProjects from "@/components/FeaturedProjects";
+import TechStrip from "@/components/TechStrip";
+
+const AVAILABLE = true;
 
 export const metadata: Metadata = {
   title: "Aditya Gupta — Full Stack Developer & MCA Student",
@@ -108,13 +112,25 @@ export default function About() {
               <p className="text-black/50 dark:text-white/50 text-sm flex flex-wrap items-center gap-x-1">
                 Full Stack Developer &middot; MCA Student &middot; <CopyButton text="aditya.gupta.leads@gmail.com" />
               </p>
+              {AVAILABLE && (
+                <span className="flex items-center gap-1.5 text-xs text-black/50 dark:text-white/50 pt-1">
+                  <span className="animate-pulse w-2 h-2 rounded-full bg-green-500"></span>
+                  Open to opportunities
+                </span>
+              )}
             </div>
           </div>
 
           {/* Short Bio */}
-          <p className="text-sm text-black/50 dark:text-white/50">
-            Love building cool stuff.
-          </p>
+          <div className="flex flex-col gap-1 pt-1">
+            <p className="text-sm text-black dark:text-white">
+              {/* POSITIONING: e.g. "I build fast, production-ready web applications — full-stack with a lean toward frontend." */}
+              I build fast, production-ready web applications — full-stack with a lean toward frontend.
+            </p>
+            <p className="text-sm text-black/50 dark:text-white/50">
+              Love building cool stuff.
+            </p>
+          </div>
 
           {/* Social Icons Row */}
           <div className="flex flex-wrap items-center gap-5 pt-2">
@@ -143,7 +159,11 @@ export default function About() {
               </a>
             ))}
           </div>
+          
+          <TechStrip />
         </div>
+
+        <FeaturedProjects />
 
 
         <ExperienceSection />
