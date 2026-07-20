@@ -1,7 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Sidebar from "@/components/Sidebar";
-import MobileNav from "@/components/MobileNav";
+import Header from "@/components/Header";
 import ThemeProvider from "@/components/ThemeProvider";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
@@ -16,8 +15,7 @@ const neueHaas = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://adityaguptadev.me"),
   title: {
-    default:
-      "Aditya Gupta - Full Stack Developer | MERN Stack & Java Developer",
+    default: "Aditya Gupta - Full Stack Developer | MERN Stack & Java Developer",
     template: "%s | Aditya Gupta",
   },
   description:
@@ -69,21 +67,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${neueHaas.variable} antialiased`}>
-        <ThemeProvider>
-          <div className="flex min-h-screen">
-            {/* Sidebar Navigation */}
-            <Sidebar />
-
-            {/* Mobile Navigation */}
-            <MobileNav />
-
-            {/* Main Content */}
-            <main className="flex-1 md:ml-48 px-6 py-8 md:px-16 md:py-16 mt-32 md:mt-0">
-              <div className="max-w-3xl">{children}</div>
-            </main>
-          </div>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${neueHaas.variable} antialiased min-h-screen flex flex-col bg-white dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Header />
+          <main className="flex-1 w-full pt-8">
+            {children}
+          </main>
         </ThemeProvider>
         <Analytics />
       </body>

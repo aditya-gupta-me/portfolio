@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageContainer from "@/components/PageContainer";
 
 export const metadata: Metadata = {
   title: "Education",
@@ -15,7 +16,8 @@ export const metadata: Metadata = {
 
 export default function EducationPage() {
   return (
-    <div id="education-tab" className="tab-content px-4 sm:px-0">
+    <PageContainer>
+      <div id="education-tab">
       <div className="space-y-8">
         <h2 className="text-2xl mb-6">Education</h2>
 
@@ -91,5 +93,6 @@ export default function EducationPage() {
         </div>
       </div>
     </div>
+      </PageContainer>
   );
 }

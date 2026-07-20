@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import PageContainer from "@/components/PageContainer";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -16,7 +17,8 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <div id="projects-tab" className="tab-content px-4 sm:px-0">
+    <PageContainer>
+      <div id="projects-tab">
       <div className="space-y-8">
         <h2 className="text-2xl mb-6">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -249,5 +251,6 @@ export default function ProjectsPage() {
         </div>
       </div>
     </div>
+      </PageContainer>
   );
 }

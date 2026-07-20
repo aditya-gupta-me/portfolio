@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import type { Metadata } from "next";
+import PageContainer from "@/components/PageContainer";
 
 export const metadata: Metadata = {
   title: "Aditya Gupta — Full Stack Developer & MCA Student",
@@ -87,7 +88,8 @@ export default function About() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div id="about-tab" className="tab-content px-4 sm:px-0">
+      <PageContainer>
+      <div id="about-tab">
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 mb-12">
           <div className="flex-1 space-y-8">
             <div>
@@ -133,7 +135,8 @@ export default function About() {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      </PageContainer>
     </>
   );
 }

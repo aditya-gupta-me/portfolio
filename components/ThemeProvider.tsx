@@ -1,65 +1,8 @@
 "use client";
 
-import {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  type ReactNode,
-} from "react";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+import type { ThemeProviderProps } from "next-themes";
 
-interface ThemeContextType {
-  darkMode: boolean;
-  toggleDarkMode: () => void;
-}
-
-const ThemeContext = createContext<ThemeContextType>({
-  darkMode: false,
-  toggleDarkMode: () => {},
-});
-
-export function useTheme(): ThemeContextType {
-  return useContext(ThemeContext);
-}
-
-export default function ThemeProvider({ children }: { children: ReactNode }) {
-  const [darkMode, setDarkMode] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      setDarkMode(true);
-      document.body.classList.add("dark");
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    setDarkMode((prev) => {
-      const next = !prev;
-      if (next) {
-        document.body.classList.add("dark");
-      } else {
-        document.body.classList.remove("dark");
-      }
-      localStorage.setItem("theme", next ? "dark" : "light");
-      return next;
-    });
-  };
-
-  // Prevent hydration mismatch by not rendering theme-dependent UI until mounted
-  if (!mounted) {
-    return (
-      <ThemeContext.Provider value={{ darkMode: false, toggleDarkMode }}>
-        {children}
-      </ThemeContext.Provider>
-    );
-  }
-
-  return (
-    <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+export default function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
 }

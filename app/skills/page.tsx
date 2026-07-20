@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageContainer from "@/components/PageContainer";
 
 export const metadata: Metadata = {
   title: "Skills",
@@ -13,7 +14,8 @@ export const metadata: Metadata = {
 
 function SkillsPage() {
   return (
-    <div id="skills-tab" className="tab-content px-4 sm:px-0">
+    <PageContainer>
+      <div id="skills-tab">
       <div className="space-y-8">
         <h2 className="text-2xl mb-6">Technical Skills</h2>
 
@@ -377,6 +379,7 @@ function SkillsPage() {
         </div>
       </div>
     </div>
+      </PageContainer>
   );
 }
 

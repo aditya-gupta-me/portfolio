@@ -1,5 +1,6 @@
 import ResumeContent from "@/components/ResumeContent";
 import type { Metadata } from "next";
+import PageContainer from "@/components/PageContainer";
 
 export const metadata: Metadata = {
   title: "Resume",

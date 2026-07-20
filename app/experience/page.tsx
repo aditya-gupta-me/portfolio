@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageContainer from "@/components/PageContainer";
 
 export const metadata: Metadata = {
   title: "Experience",
@@ -15,7 +16,8 @@ export const metadata: Metadata = {
 
 export default function ExperiencePage() {
   return (
-    <div id="experience-tab" className="tab-content px-4 sm:px-0">
+    <PageContainer>
+      <div id="experience-tab">
       <div className="space-y-8">
         <h2 className="text-2xl mb-6">Work Experience</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -123,5 +125,6 @@ export default function ExperiencePage() {
         </div>
       </div>
     </div>
+      </PageContainer>
   );
 }

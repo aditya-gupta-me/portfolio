@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageContainer from "@/components/PageContainer";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -15,7 +16,8 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div id="contact-tab" className="tab-content px-4 sm:px-0">
+    <PageContainer>
+      <div id="contact-tab">
       <div className="space-y-8">
         <div>
           <h2 className="text-2xl mb-2">
@@ -221,5 +223,6 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
+      </PageContainer>
   );
 }

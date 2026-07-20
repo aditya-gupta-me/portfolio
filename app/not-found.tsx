@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import PageContainer from "@/components/PageContainer";
 
 export const metadata: Metadata = {
   title: "Page Not Found",
@@ -7,7 +8,8 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="tab-content px-4 sm:px-0">
+    <PageContainer>
+      <div>
       <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
         <h1 className="text-6xl font-medium mb-4">404</h1>
         <p className="text-xl text-black/50 mb-8">Page not found</p>
@@ -19,5 +21,6 @@ export default function NotFound() {
         </Link>
       </div>
     </div>
+      </PageContainer>
   );
 }
