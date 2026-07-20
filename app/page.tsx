@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import type { Metadata } from "next";
 import PageContainer from "@/components/PageContainer";
+import ExperienceSection from "@/components/ExperienceSection";
 
 export const metadata: Metadata = {
   title: "Aditya Gupta — Full Stack Developer & MCA Student",
@@ -135,6 +136,9 @@ export default function About() {
             </div>
           </div>
         </div>
+        
+        <ExperienceSection />
+        
         </div>
       </PageContainer>
     </>

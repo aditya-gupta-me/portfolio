@@ -1,130 +1,64 @@
 import type { Metadata } from "next";
 import PageContainer from "@/components/PageContainer";
+import WorkEntryCard from "@/components/WorkEntryCard";
+import { workExperiences } from "@/data/work";
 
 export const metadata: Metadata = {
-  title: "Experience",
+  title: "Work Experience | Aditya Gupta",
   description:
-    "Work experience of Aditya Gupta - Backend Engineer at Aarvasa, Video Editor at Contour Education, and Head of Video Editing at Youth India Foundation.",
+    "A full overview of my professional work experience, roles, and the technologies I have worked with.",
   alternates: { canonical: "/work" },
   openGraph: {
-    title: "Experience | Aditya Gupta",
+    title: "Work Experience | Aditya Gupta",
     description:
-      "Work experience - Backend Engineer, Video Editor, Head of Video Editing.",
-    url: "/work",
+      "A full overview of my professional work experience, roles, and the technologies I have worked with.",
+    url: "https://adityaguptadev.me/work",
+    type: "profile",
   },
 };
 
-export default function ExperiencePage() {
+export default function WorkPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Work Experience",
+    itemListElement: workExperiences.map((entry, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: `${entry.role} at ${entry.company}`,
+      description: entry.accomplishments[0] || "",
+    })),
+  };
+
   return (
-    <PageContainer>
-      <div id="experience-tab">
-      <div className="space-y-8">
-        <h2 className="text-2xl mb-6">Work Experience</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Backend Engineer Intern */}
-          <div className="border border-black/10 rounded-lg overflow-hidden bg-white transition-all hover:shadow-lg">
-            <div className="overflow-hidden bg-gradient-to-br from-green-100 to-emerald-100">
-              <div className="w-full h-32 flex items-center justify-center text-5xl">
-                💻
-              </div>
-            </div>
-            <div className="p-6">
-              <div className="mb-3">
-                <h3 className="text-xl font-medium mb-1">
-                  Backend Engineer | Intern
-                </h3>
-                <p className="text-sm text-black/40 mb-1">Aarvasa</p>
-                <p className="text-xs text-black/30">
-                  Oct 2025 – Present • Remote
-                </p>
-              </div>
-              <ul className="space-y-2 text-black/50 leading-relaxed text-sm">
-                <li>
-                  • Engineering a GenAI-powered chatbot service using Langchain
-                  and RAG to automate and improve response proficiency
-                </li>
-                <li>
-                  • Actively contributing to a high-priority GenAI project,
-                  applying new skills beyond core backend (Node.js)
-                  responsibilities
-                </li>
-              </ul>
-            </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <PageContainer>
+        <div className="space-y-8 pb-12">
+          {/* Header */}
+          <div>
+            <h1 className="text-3xl font-bold mb-2">Work Experience</h1>
+            <p className="text-black/50 dark:text-white/50 text-sm">
+              My work experiences across different companies and roles.
+            </p>
           </div>
 
-          {/* Video Editor Intern */}
-          <div className="border border-black/10 rounded-lg overflow-hidden bg-white transition-all hover:shadow-lg">
-            <div className="overflow-hidden bg-gradient-to-br from-blue-100 to-cyan-100">
-              <div className="w-full h-32 flex items-center justify-center text-5xl">
-                🎬
+          {/* Entries list */}
+          <div className="flex flex-col">
+            {workExperiences.map((entry, index) => (
+              <div key={`${entry.company}-${index}`}>
+                <WorkEntryCard entry={entry} variant="full" />
+                {index < workExperiences.length - 1 && (
+                  <hr className="my-6 border-black/10 dark:border-white/10" />
+                )}
               </div>
-            </div>
-            <div className="p-6">
-              <div className="mb-3">
-                <h3 className="text-xl font-medium mb-1">
-                  Video Editor Intern
-                </h3>
-                <p className="text-sm text-black/40 mb-1">Contour Education</p>
-                <p className="text-xs text-black/30">
-                  Aug 2022 – Jan 2023 • Australia • Remote
-                </p>
-              </div>
-              <p className="text-black/50 leading-relaxed mb-3 text-sm">
-                Worked remotely with an international team in Australia,
-                optimizing educational videos to enhance student engagement and
-                learning efficiency.
-              </p>
-              <ul className="space-y-2 text-black/50 leading-relaxed text-sm">
-                <li>• Optimized educational videos by 35%</li>
-                <li>
-                  • Collaborated with cross-functional international teams
-                </li>
-                <li>• Maintained consistent quality standards</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Head of Video Editing (Intern) */}
-          <div className="border border-black/10 rounded-lg overflow-hidden bg-white transition-all hover:shadow-lg">
-            <div className="overflow-hidden bg-gradient-to-br from-purple-100 to-pink-100">
-              <div className="w-full h-32 flex items-center justify-center text-5xl">
-                👥
-              </div>
-            </div>
-            <div className="p-6">
-              <div className="mb-3">
-                <h3 className="text-xl font-medium mb-1">
-                  Head of Video Editing (Intern)
-                </h3>
-                <p className="text-sm text-black/40 mb-1">
-                  Youth India Foundation
-                </p>
-                <p className="text-xs text-black/30">
-                  Dec 2021 – Feb 2022 • Pune • Remote
-                </p>
-              </div>
-              <p className="text-black/50 leading-relaxed mb-3 text-sm">
-                Managed editorial staff and coordinated the entire project
-                lifecycle from assignment through completion and quality
-                assurance.
-              </p>
-              <ul className="space-y-2 text-black/50 leading-relaxed text-sm">
-                <li>
-                  • Managed editorial staff through full project lifecycle
-                </li>
-                <li>
-                  • Ensured quality assurance from assignment to completion
-                </li>
-                <li>
-                  • Served as main liaison with IT department for technical
-                  requirements
-                </li>
-              </ul>
-            </div>
+            ))}
           </div>
         </div>
-      </div>
-    </div>
       </PageContainer>
+    </>
   );
 }
