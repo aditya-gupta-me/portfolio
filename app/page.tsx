@@ -102,7 +102,7 @@ export default function About() {
               />
             </div>
             <div>
-              <h1 className="text-2xl font-bold dark:text-white">
+              <h1 className="text-3xl font-bold tracking-tight text-black dark:text-white">
                 Aditya Gupta
               </h1>
               <p className="text-black/50 dark:text-white/50 text-sm flex flex-wrap items-center gap-x-1">
@@ -112,7 +112,7 @@ export default function About() {
           </div>
 
           {/* Short Bio */}
-          <p className="text-black/50 dark:text-white/50">
+          <p className="text-sm text-black/50 dark:text-white/50">
             Love building cool stuff.
           </p>
 

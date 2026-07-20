@@ -20,7 +20,7 @@ export default function ContactPage() {
       <div id="contact-tab">
       <div className="space-y-8">
         <div>
-          <h2 className="text-xl font-semibold mb-2">
+          <h2 className="text-lg font-semibold mb-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"

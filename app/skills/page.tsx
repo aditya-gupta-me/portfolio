@@ -17,7 +17,7 @@ function SkillsPage() {
     <PageContainer>
       <div id="skills-tab">
       <div className="space-y-8">
-        <h2 className="text-xl font-semibold mb-6">Technical Skills</h2>
+        <h2 className="text-lg font-semibold mb-6">Technical Skills</h2>
 
         {/* Languages */}
         <div>

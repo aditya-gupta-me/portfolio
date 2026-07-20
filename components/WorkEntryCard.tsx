@@ -37,7 +37,7 @@ export default function WorkEntryCard({ entry, variant }: WorkEntryCardProps) {
         {/* Left Side */}
         <div className="flex flex-col gap-1.5">
           <div className="flex items-center gap-3">
-            <h2 className="text-base font-semibold">
+            <h2 className="text-sm font-semibold">
               {entry.company}
             </h2>
             {isCurrent && <StatusBadge />}
@@ -55,11 +55,11 @@ export default function WorkEntryCard({ entry, variant }: WorkEntryCardProps) {
               </button>
             )}
           </div>
-          <p className="text-black/60 dark:text-white/60 font-medium">{entry.role}</p>
+          <p className="text-sm text-black/60 dark:text-white/60 font-medium">{entry.role}</p>
         </div>
 
         {/* Right Side */}
-        <div className="flex flex-col sm:text-right text-black/50 dark:text-white/50 text-sm gap-1">
+        <div className="flex flex-col sm:text-right text-black/50 dark:text-white/50 text-xs gap-1">
           <div className="flex items-center sm:justify-end gap-2">
             <span>
               {entry.startDate} – {entry.endDate}
@@ -89,7 +89,7 @@ export default function WorkEntryCard({ entry, variant }: WorkEntryCardProps) {
             {/* Technologies */}
             {entry.technologies.length > 0 && (
               <div>
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-black/50 dark:text-white/50 mb-3">
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-black/50 dark:text-white/50 mb-3">
                   Technologies & Tools
                 </h3>
                 <TechIconGrid technologies={entry.technologies} />
@@ -99,7 +99,7 @@ export default function WorkEntryCard({ entry, variant }: WorkEntryCardProps) {
             {/* Accomplishments */}
             {entry.accomplishments.length > 0 && (
               <div>
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-black/50 dark:text-white/50 mb-3">
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-black/50 dark:text-white/50 mb-3">
                   What I've done
                 </h3>
                 <ul className="list-disc pl-5 space-y-2 text-black/70 dark:text-white/70 text-sm leading-relaxed">

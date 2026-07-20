@@ -40,7 +40,7 @@ export default function WorkPage() {
         <div className="space-y-8 pb-12">
           {/* Header */}
           <div>
-            <h1 className="text-xl font-semibold mb-2">Work Experience</h1>
+            <h1 className="text-lg font-semibold mb-2">Work Experience</h1>
             <p className="text-black/50 dark:text-white/50 text-sm">
               My work experiences across different companies and roles.
             </p>

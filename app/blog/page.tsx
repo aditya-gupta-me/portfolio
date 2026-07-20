@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <PageContainer>
-      <h1 className="text-xl font-semibold mb-6">Blog</h1>
+      <h1 className="text-lg font-semibold mb-6">Blog</h1>
       <div className="text-black/50 dark:text-white/50">
         <p>Coming soon...</p>
       </div>
