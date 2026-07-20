@@ -20,7 +20,7 @@ export default function ProjectsPage() {
     <PageContainer>
       <div id="projects-tab">
       <div className="space-y-8">
-        <h2 className="text-2xl mb-6">Projects</h2>
+        <h2 className="text-xl font-semibold mb-6">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* CodeHat Project */}
           <div className="project-card border border-black/10 rounded-lg overflow-hidden bg-white transition-all hover:shadow-lg">

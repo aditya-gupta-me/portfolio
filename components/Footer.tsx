@@ -44,7 +44,7 @@ const SOCIAL_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="w-full mt-auto">
+    <footer className="w-full mt-auto bg-[#FAF9F7] dark:bg-[#0a0a0a] transition-colors duration-300">
       <div className="border-t border-black/10 dark:border-white/10" />
       <PageContainer>
         <div className="pt-12 pb-8 flex flex-col gap-12">

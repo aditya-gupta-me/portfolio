@@ -69,7 +69,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${neueHaas.variable} antialiased min-h-screen flex flex-col bg-white dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300`}>
+      <body className={`${neueHaas.variable} antialiased min-h-screen flex flex-col bg-[#FAF9F7] dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <main className="flex-1 w-full pt-8">

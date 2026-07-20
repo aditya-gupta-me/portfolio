@@ -31,13 +31,13 @@ export default function WorkEntryCard({ entry, variant }: WorkEntryCardProps) {
   })();
 
   return (
-    <div className="group w-full py-6 transition-colors">
+    <div className="group w-full py-4 transition-colors">
       {/* Header Row */}
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
         {/* Left Side */}
         <div className="flex flex-col gap-1.5">
           <div className="flex items-center gap-3">
-            <h2 className={isPreview ? "text-lg font-bold" : "text-xl font-bold"}>
+            <h2 className="text-base font-semibold">
               {entry.company}
             </h2>
             {isCurrent && <StatusBadge />}
@@ -66,26 +66,26 @@ export default function WorkEntryCard({ entry, variant }: WorkEntryCardProps) {
             </span>
           </div>
           <p>
-            {entry.location} ({entry.type})
+            {entry.location === entry.type ? entry.location : `${entry.location} (${entry.type})`}
           </p>
         </div>
       </div>
 
       {/* Full detail divider (only in full variant) */}
       {!isPreview && (
-        <hr className="my-6 border-black/10 dark:border-white/10" />
+        <hr className="my-4 border-black/10 dark:border-white/10" />
       )}
 
       {/* Expandable Content Area */}
       <div
         className={`grid transition-all duration-300 ease-in-out ${
           shouldShowDetails
-            ? "grid-rows-[1fr] opacity-100 mt-6"
+            ? "grid-rows-[1fr] opacity-100 mt-4"
             : "grid-rows-[0fr] opacity-0 mt-0"
         }`}
       >
         <div className="overflow-hidden">
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
             {/* Technologies */}
             {entry.technologies.length > 0 && (
               <div>

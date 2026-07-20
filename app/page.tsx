@@ -92,20 +92,21 @@ export default function About() {
         <div className="flex flex-col space-y-4">
           {/* Avatar and Name row */}
           <div className="flex items-center gap-4">
-            <Image
-              src="/PP.jpg"
-              alt="Aditya Gupta avatar"
-              width={64}
-              height={64}
-              className="w-16 h-16 rounded-full object-cover"
-            />
+            <div className="w-24 h-24 flex-shrink-0">
+              <Image
+                src="/PP.jpg"
+                alt="Aditya Gupta avatar"
+                width={96}
+                height={96}
+                className="w-full h-full rounded-full object-cover"
+              />
+            </div>
             <div>
               <h1 className="text-2xl font-bold dark:text-white">
                 Aditya Gupta
               </h1>
-              <p className="text-black/50 dark:text-white/50 text-sm md:text-base flex items-center">
-                Full Stack Developer · MCA Student · aditya.gupta.leads@gmail.com
-                <CopyButton text="aditya.gupta.leads@gmail.com" />
+              <p className="text-black/50 dark:text-white/50 text-sm flex flex-wrap items-center gap-x-1">
+                Full Stack Developer &middot; MCA Student &middot; <CopyButton text="aditya.gupta.leads@gmail.com" />
               </p>
             </div>
           </div>
@@ -144,9 +145,9 @@ export default function About() {
           </div>
         </div>
 
-        
+
         <ExperienceSection />
-        
+
       </PageContainer>
     </>
   );

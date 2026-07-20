@@ -19,7 +19,7 @@ export default function EducationPage() {
     <PageContainer>
       <div id="education-tab">
       <div className="space-y-8">
-        <h2 className="text-2xl mb-6">Education</h2>
+        <h2 className="text-xl font-semibold mb-6">Education</h2>
 
         <div className="space-y-6">
           {/* Master's Degree */}
