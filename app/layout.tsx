@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import ThemeProvider from "@/components/ThemeProvider";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
@@ -74,6 +75,7 @@ export default function RootLayout({
           <main className="flex-1 w-full pt-8">
             {children}
           </main>
+          <Footer />
         </ThemeProvider>
         <Analytics />
       </body>
