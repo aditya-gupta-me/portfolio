@@ -70,9 +70,9 @@ export default function About() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <PageContainer>
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-col">
           {/* Avatar and Name row */}
-          <div className="flex items-center gap-4 animate-fade-up" style={{ animationDelay: '0ms' }}>
+          <div className="flex items-start gap-4 animate-fade-up" style={{ animationDelay: '0ms' }}>
             <div className="w-24 h-24 flex-shrink-0">
               <Image
                 src="/PP.jpg"
@@ -83,37 +83,28 @@ export default function About() {
               />
             </div>
             <div>
-              <h1 className="text-3xl font-bold tracking-tight text-black dark:text-white">
+              <h1 className="text-2xl font-bold tracking-tight text-black dark:text-white">
                 Aditya Gupta
               </h1>
               <p className="text-black/50 dark:text-white/50 text-sm flex flex-wrap items-center gap-x-1">
-                Full Stack Developer &middot; MCA Student &middot; <CopyButton text="aditya.gupta.leads@gmail.com" />
+                Engineer &middot; Artist &middot; <CopyButton text="aditya.gupta.leads@gmail.com" />
               </p>
+              {AVAILABLE && (
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-green-500/25 bg-green-500/5 text-xs text-green-700 dark:text-green-400 mt-1.5 w-fit">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse flex-shrink-0" />
+                  Open to opportunities
+                </span>
+              )}
             </div>
           </div>
-          
-          {AVAILABLE && (
-            <div className="animate-fade-up" style={{ animationDelay: '60ms' }}>
-              <span className="flex items-center gap-1.5 text-xs text-black/50 dark:text-white/50 pt-1">
-                <span className="animate-pulse w-2 h-2 rounded-full bg-green-500"></span>
-                Open to opportunities
-              </span>
-            </div>
-          )}
 
-          {/* Short Bio */}
-          <div className="flex flex-col gap-1 pt-1">
-            <p className="text-sm text-black dark:text-white animate-fade-up" style={{ animationDelay: '120ms' }}>
-              {/* POSITIONING: e.g. "I build fast, production-ready web applications — full-stack with a lean toward frontend." */}
-              I build fast, production-ready web applications — full-stack with a lean toward frontend.
-            </p>
-            <p className="text-sm text-black/50 dark:text-white/50 animate-fade-up" style={{ animationDelay: '160ms' }}>
-              Love building cool stuff.
-            </p>
-          </div>
+          {/* Bio */}
+          <p className="text-sm text-black/50 dark:text-white/50 mt-4 animate-fade-up" style={{ animationDelay: '80ms' }}>
+            Love building cool stuff.
+          </p>
 
           {/* Social Icons Row */}
-          <div className="flex flex-wrap items-center gap-5 pt-2 animate-fade-up" style={{ animationDelay: '220ms' }}>
+          <div className="flex flex-wrap items-center gap-5 mt-4 animate-fade-up" style={{ animationDelay: '160ms' }}>
             {[
               { name: "GitHub", icon: "bxl-github", url: "https://github.com/aditya-gupta-me" },
               { name: "LinkedIn", icon: "bxl-linkedin", url: "https://linkedin.com/in/aditya-gupta-irl" },
@@ -139,8 +130,9 @@ export default function About() {
               </a>
             ))}
           </div>
-          
-          <div className="animate-fade-up" style={{ animationDelay: '280ms' }}>
+
+          {/* Tech Strip */}
+          <div className="mt-6 animate-fade-up" style={{ animationDelay: '240ms' }}>
             <TechStrip />
           </div>
         </div>

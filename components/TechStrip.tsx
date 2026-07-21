@@ -12,31 +12,38 @@ const stack = [
 
 export default function TechStrip() {
   return (
-    <div className="flex flex-wrap items-center gap-4 pt-4 pb-2">
-      {stack.map((tech) => {
-        const exportName = 'si' + tech.slug.charAt(0).toUpperCase() + tech.slug.slice(1);
-        const iconData = (icons as any)[exportName];
-        
-        if (!iconData) return null;
+    <div>
+      <p className="text-xs text-black/40 dark:text-white/40 mb-3">
+        Technologies &amp; Frameworks
+      </p>
+      <div className="flex flex-wrap gap-2">
+        {stack.map((tech) => {
+          const exportName = 'si' + tech.slug.charAt(0).toUpperCase() + tech.slug.slice(1);
+          const iconData = (icons as any)[exportName];
 
-        return (
-          <div key={tech.slug} className="relative group/tech">
-            <svg
-              role="img"
-              viewBox="0 0 24 24"
-              className="w-4 h-4 text-black/50 dark:text-white/50 fill-current"
-              xmlns="http://www.w3.org/2000/svg"
+          if (!iconData) return null;
+
+          return (
+            <span
+              key={tech.slug}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] text-xs text-black/70 dark:text-white/60"
             >
-              <path d={iconData.path} />
-            </svg>
-            {/* CSS-only Tooltip */}
-            <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-black text-white dark:bg-white dark:text-black text-[10px] font-medium rounded opacity-0 group-hover/tech:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              <svg
+                role="img"
+                viewBox="0 0 24 24"
+                width="12"
+                height="12"
+                fill="currentColor"
+                className="opacity-70 flex-shrink-0"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d={iconData.path} />
+              </svg>
               {tech.name}
-              <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-black dark:border-t-white"></span>
             </span>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }
