@@ -2,12 +2,42 @@ import * as icons from 'simple-icons';
 
 // REPLACE with your actual stack
 const stack = [
+  // Languages
+  { name: 'JavaScript', slug: 'javascript' },
   { name: 'TypeScript', slug: 'typescript' },
   { name: 'React', slug: 'react' },
+  { name: 'Python', slug: 'python' },
+  { name: 'Java', slug: 'openjdk' },
+  { name: 'C++', slug: 'cplusplus' },
+  { name: 'HTML5', slug: 'html5' },
+  { name: 'CSS3', slug: 'css' },
+  { name: 'Shell', slug: 'gnubash' },
+  { name: 'SQL', slug: 'sqlite' }, // Placeholder for generic SQL
+
+  // Frameworks & Libraries
   { name: 'Next.js', slug: 'nextdotjs' },
   { name: 'Node.js', slug: 'nodedotjs' },
-  { name: 'PostgreSQL', slug: 'postgresql' },
+  { name: 'Bun', slug: 'bun' },
+  { name: 'Express', slug: 'express' },
+  { name: 'FastAPI', slug: 'fastapi' },
+  { name: 'Material UI', slug: 'mui' },
   { name: 'Tailwind CSS', slug: 'tailwindcss' },
+  { name: 'Recoil', slug: 'recoil' },
+  { name: 'Prisma', slug: 'prisma' },
+
+  // Databases
+  { name: 'PostgreSQL', slug: 'postgresql' },
+  { name: 'MongoDB', slug: 'mongodb' },
+
+  // Cloud
+  { name: 'AWS', slug: 'amazonwebservices' },
+  { name: 'Google Cloud', slug: 'googlecloud' },
+
+  // Tools
+  { name: 'Docker', slug: 'docker' },
+  { name: 'Cursor', slug: 'cursor' },
+  { name: "Linux", slug: "linux" },
+  { name: "Postman", slug: "postman" },
 ];
 
 export default function TechStrip() {

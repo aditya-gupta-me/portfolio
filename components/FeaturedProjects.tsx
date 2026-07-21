@@ -11,25 +11,25 @@ export default function FeaturedProjects() {
       <div className="flex flex-col">
         {featured.map((project, index) => (
           <div key={project.title}>
-            <a href={project.url} target="_blank" rel="noopener noreferrer" className="group block py-4 transition-colors">
+            <Link href={`/projects/${project.slug}`} className="group block py-4 transition-colors">
               <div className="flex justify-between items-start gap-4 mb-1">
                 <h3 className="text-sm font-semibold group-hover:text-black dark:group-hover:text-white transition-colors text-black/70 dark:text-white/70">
                   {project.title}
                 </h3>
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-black/40 dark:text-white/40">{project.year}</span>
-                  <i className="bx bx-link-external text-black/50 dark:text-white/50 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                  <i className="bx bx-right-arrow-alt text-black/50 dark:text-white/50 opacity-0 group-hover:opacity-100 transition-opacity"></i>
                 </div>
               </div>
               <p className="text-xs text-black/50 dark:text-white/50 mb-3">{project.description}</p>
-              {project.tags && project.tags.length > 0 && (
+              {project.tech && project.tech.length > 0 && (
                 <div className="flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
+                  {project.tech.map((tag) => (
                     <span key={tag} className="text-xs text-black/40 dark:text-white/40">{tag}</span>
                   ))}
                 </div>
               )}
-            </a>
+            </Link>
             {index < featured.length - 1 && (
               <hr className="my-4 border-black/10 dark:border-white/10" />
             )}

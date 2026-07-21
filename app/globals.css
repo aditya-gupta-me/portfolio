@@ -105,14 +105,6 @@ body.dark textarea:focus {
   }
 }
 
-/* Project thumbnail animation */
-.project-thumbnail {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.project-card:hover .project-thumbnail {
-  transform: scale(1.02);
-}
 
 /* Tab content fade in animation */
 .tab-content {
@@ -227,16 +219,6 @@ body.dark .tab-button:hover {
   color: rgba(229, 229, 229, 0.6) !important;
 }
 
-/* Project card styles */
-body.dark .project-card {
-  background-color: #1a1a1a;
-  border-color: rgba(229, 229, 229, 0.1);
-}
-
-body.dark .project-card:hover {
-  background-color: #1f1f1f;
-  box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1);
-}
 
 body.dark .bg-gradient-to-br {
   opacity: 0.3;

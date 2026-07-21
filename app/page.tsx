@@ -13,7 +13,7 @@ import { workExperiences } from "@/data/work";
 const AVAILABLE = true;
 
 // Generate skills list dynamically
-const projectTags = projects.flatMap((p) => p.tags);
+const projectTags = projects.flatMap((p) => p.tech);
 const workTech = workExperiences.flatMap((w) => w.technologies.map((t) => t.name));
 const stripTech = ['TypeScript', 'React', 'Next.js', 'Node.js', 'PostgreSQL', 'Tailwind CSS']; // Tech strip list
 const uniqueSkills = Array.from(new Set([...projectTags, ...workTech, ...stripTech]));
@@ -75,7 +75,7 @@ export default function About() {
           <div className="flex items-start gap-4 animate-fade-up" style={{ animationDelay: '0ms' }}>
             <div className="w-24 h-24 flex-shrink-0">
               <Image
-                src="/PP.jpg"
+                src="/avatar.png"
                 alt="Aditya Gupta avatar"
                 width={96}
                 height={96}
@@ -83,7 +83,7 @@ export default function About() {
               />
             </div>
             <div>
-              <h1 className="text-2xl font-bold tracking-tight text-black dark:text-white">
+              <h1 className="text-2xl font-bold tracking-wide text-black dark:text-white">
                 Aditya Gupta
               </h1>
               <p className="text-black/50 dark:text-white/50 text-sm flex flex-wrap items-center gap-x-1">
