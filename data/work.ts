@@ -12,6 +12,7 @@ export interface WorkEntry {
   endDate: string | "Present";
   technologies: Technology[];
   accomplishments: string[];
+  highlight?: string;
 }
 
 export const workExperiences: WorkEntry[] = [

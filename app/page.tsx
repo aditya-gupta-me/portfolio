@@ -20,7 +20,7 @@ const uniqueSkills = Array.from(new Set([...projectTags, ...workTech, ...stripTe
 
 export const metadata: Metadata = {
   // REPLACE: YOUR_NAME, YOUR_POSITIONING_STATEMENT, YOUR_LOCATION
-  title: 'YOUR_NAME — Full Stack Developer',
+  title: 'Aditya Gupta - Full Stack Developer',
   description: 'YOUR_POSITIONING_STATEMENT. Based in YOUR_LOCATION. Open to full-stack and frontend opportunities.',
   openGraph: {
     // REPLACE: YOUR_NAME, YOUR_POSITIONING_STATEMENT, YOUR_DOMAIN
