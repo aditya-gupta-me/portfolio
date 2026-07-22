@@ -36,7 +36,7 @@ export default function ProjectsPage() {
       />
       <PageContainer>
         <div className="space-y-8 pb-12">
-          <div>
+          <div className="animate-fade-up" style={{ animationDelay: '0ms' }}>
             <h1 className="text-lg font-semibold mb-2">Projects</h1>
             <p className="text-black/50 dark:text-white/50 text-sm">
               A showcase of things I&apos;ve built — web apps, tools, and experiments.
@@ -45,7 +45,7 @@ export default function ProjectsPage() {
 
           <div className="flex flex-col">
             {projects.map((project, index) => (
-              <div key={project.slug}>
+              <div key={project.slug} className="animate-fade-up" style={{ animationDelay: `${(index + 1) * 80}ms` }}>
                 <Link
                   href={`/projects/${project.slug}`}
                   className="group block py-4 transition-colors"

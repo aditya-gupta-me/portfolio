@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import PageContainer from '@/components/PageContainer';
 import TechIconGrid from '@/components/TechIconGrid';
+import { AnimatedSection } from '@/components/AnimatedSection';
 import { projects } from '@/data/projects';
 
 // Pre-render all slugs at build time
@@ -75,15 +76,17 @@ export default async function ProjectPage({
     <PageContainer>
       <div className="space-y-8 pb-12">
         {/* 1. Back nav */}
-        <Link
-          href="/projects"
-          className="inline-flex items-center gap-1 text-xs text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors"
-        >
-          ← Projects
-        </Link>
+        <div className="animate-fade-up" style={{ animationDelay: '0ms' }}>
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-1 text-xs text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors"
+          >
+            ← Projects
+          </Link>
+        </div>
 
         {/* 2. Project header */}
-        <div>
+        <div className="animate-fade-up" style={{ animationDelay: '80ms' }}>
           <div className="flex flex-wrap items-center gap-3 mb-2">
             <h1 className="text-lg font-semibold">{project.title}</h1>
             <StatusBadge status={project.status} />
@@ -95,7 +98,7 @@ export default async function ProjectPage({
 
         {/* 3. Action links */}
         {(project.liveUrl || project.repoUrl) && (
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3 animate-fade-up" style={{ animationDelay: '160ms' }}>
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
@@ -121,7 +124,7 @@ export default async function ProjectPage({
 
         {/* 4. Hero image */}
         {project.images[0] && (
-          <div className="overflow-hidden rounded-lg">
+          <div className="overflow-hidden rounded-lg animate-fade-up" style={{ animationDelay: '240ms' }}>
             <Image
               src={project.images[0]}
               alt={`${project.title} screenshot`}
@@ -134,64 +137,72 @@ export default async function ProjectPage({
         )}
 
         {/* 5. Overview */}
-        <div>
-          <h2 className="text-sm font-semibold mb-3">Overview</h2>
-          <div className="space-y-4 text-sm text-black/60 dark:text-white/60 leading-relaxed">
-            {project.fullDescription.split('\n\n').map((paragraph, i) => (
-              <p key={i}>{paragraph}</p>
-            ))}
+        <AnimatedSection>
+          <div>
+            <h2 className="text-sm font-semibold mb-3">Overview</h2>
+            <div className="space-y-4 text-sm text-black/60 dark:text-white/60 leading-relaxed">
+              {project.fullDescription.split('\n\n').map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
+            </div>
           </div>
-        </div>
+        </AnimatedSection>
 
         {/* 6. What I built */}
         {project.highlights.length > 0 && (
-          <div>
-            <h2 className="text-sm font-semibold mb-3">What I built</h2>
-            <ul className="list-disc pl-5 space-y-2 text-sm text-black/60 dark:text-white/60 leading-relaxed">
-              {project.highlights.map((highlight, i) => (
-                <li key={i}>{highlight}</li>
-              ))}
-            </ul>
-          </div>
+          <AnimatedSection>
+            <div>
+              <h2 className="text-sm font-semibold mb-3">What I built</h2>
+              <ul className="list-disc pl-5 space-y-2 text-sm text-black/60 dark:text-white/60 leading-relaxed">
+                {project.highlights.map((highlight, i) => (
+                  <li key={i}>{highlight}</li>
+                ))}
+              </ul>
+            </div>
+          </AnimatedSection>
         )}
 
         {/* 7. Tech stack */}
         {project.technologies.length > 0 && (
-          <div>
-            <h2 className="text-sm font-semibold mb-3">Tech stack</h2>
-            <TechIconGrid technologies={project.technologies} />
-          </div>
+          <AnimatedSection>
+            <div>
+              <h2 className="text-sm font-semibold mb-3">Tech stack</h2>
+              <TechIconGrid technologies={project.technologies} />
+            </div>
+          </AnimatedSection>
         )}
 
         {/* 8. Navigation */}
-        <hr className="border-black/10 dark:border-white/10" />
-        <div className="flex justify-between items-center">
-          {prevProject ? (
-            <Link
-              href={`/projects/${prevProject.slug}`}
-              className="text-xs text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors"
-            >
-              ← {prevProject.title}
-            </Link>
-          ) : (
-            <span />
-          )}
-          {nextProject ? (
-            <Link
-              href={`/projects/${nextProject.slug}`}
-              className="text-xs text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors"
-            >
-              {nextProject.title} →
-            </Link>
-          ) : (
-            <Link
-              href="/projects"
-              className="text-xs text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors"
-            >
-              All projects →
-            </Link>
-          )}
-        </div>
+        <AnimatedSection>
+          <hr className="border-black/10 dark:border-white/10 mb-8" />
+          <div className="flex justify-between items-center">
+            {prevProject ? (
+              <Link
+                href={`/projects/${prevProject.slug}`}
+                className="text-xs text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors"
+              >
+                ← {prevProject.title}
+              </Link>
+            ) : (
+              <span />
+            )}
+            {nextProject ? (
+              <Link
+                href={`/projects/${nextProject.slug}`}
+                className="text-xs text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors"
+              >
+                {nextProject.title} →
+              </Link>
+            ) : (
+              <Link
+                href="/projects"
+                className="text-xs text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors"
+              >
+                All projects →
+              </Link>
+            )}
+          </div>
+        </AnimatedSection>
       </div>
     </PageContainer>
   );
