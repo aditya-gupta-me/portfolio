@@ -23,11 +23,9 @@ export default function FeaturedProjects() {
               </div>
               <p className="text-xs text-black/50 dark:text-white/50 mb-3">{project.description}</p>
               {project.tech && project.tech.length > 0 && (
-                <div className="flex flex-wrap gap-1.5">
-                  {project.tech.map((tag) => (
-                    <span key={tag} className="text-xs text-black/40 dark:text-white/40">{tag}</span>
-                  ))}
-                </div>
+                <p className="text-xs text-black/40 dark:text-white/40">
+                  {project.tech.join(' · ')}
+                </p>
               )}
             </Link>
             {index < featured.length - 1 && (

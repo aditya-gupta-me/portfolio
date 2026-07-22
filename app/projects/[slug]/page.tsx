@@ -3,9 +3,12 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import PageContainer from '@/components/PageContainer';
-import TechIconGrid from '@/components/TechIconGrid';
 import { AnimatedSection } from '@/components/AnimatedSection';
 import { projects } from '@/data/projects';
+import * as icons from 'simple-icons';
+
+const isPackageUrl = (url: string) =>
+  ['pypi.org', 'npmjs.com', 'crates.io', 'pkg.go.dev'].some((d) => url.includes(d));
 
 // Pre-render all slugs at build time
 export async function generateStaticParams() {
@@ -23,13 +26,24 @@ export async function generateMetadata({
   if (!project) return {};
 
   return {
-    title: `${project.title} — Projects`,
+    // REPLACE: YOUR_NAME, YOUR_DOMAIN
+    title: `${project.title} — YOUR_NAME`,
     description: project.description,
     openGraph: {
-      title: `${project.title} — Projects`,
+      title: project.title,
       description: project.description,
-      images: project.images[0] ? [project.images[0]] : [],
-      url: `/projects/${project.slug}`,
+      url: `https://YOUR_DOMAIN/projects/${project.slug}`,
+      type: 'article',
+      images:
+        project.images?.length > 0
+          ? [{ url: project.images[0], width: 1200, height: 630, alt: project.title }]
+          : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: project.title,
+      description: project.description,
+      images: project.images?.length > 0 ? [project.images[0]] : [],
     },
   };
 }
@@ -99,14 +113,14 @@ export default async function ProjectPage({
         {/* 3. Action links */}
         {(project.liveUrl || project.repoUrl) && (
           <div className="flex flex-wrap gap-3 animate-fade-up" style={{ animationDelay: '160ms' }}>
-            {project.liveUrl && (
+            {project.liveUrl && project.liveUrl !== project.repoUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium rounded-full border border-black/20 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                className="inline-flex items-center gap-1 px-4 py-1.5 text-xs rounded-full border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
               >
-                View live ↗
+                {isPackageUrl(project.liveUrl) ? 'View package ↗' : 'View live ↗'}
               </a>
             )}
             {project.repoUrl && (
@@ -114,7 +128,7 @@ export default async function ProjectPage({
                 href={project.repoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium rounded-full border border-black/20 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                className="inline-flex items-center gap-1 px-4 py-1.5 text-xs rounded-full border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
               >
                 GitHub ↗
               </a>
@@ -123,14 +137,14 @@ export default async function ProjectPage({
         )}
 
         {/* 4. Hero image */}
-        {project.images[0] && (
-          <div className="overflow-hidden rounded-lg animate-fade-up" style={{ animationDelay: '240ms' }}>
+        {project.images?.length > 0 && (
+          <div className="relative w-full max-h-[480px] overflow-hidden rounded-lg animate-fade-up" style={{ animationDelay: '240ms' }}>
             <Image
               src={project.images[0]}
               alt={`${project.title} screenshot`}
               width={1200}
-              height={675}
-              className="w-full aspect-video object-cover"
+              height={630}
+              className="w-full object-cover object-top"
               priority
             />
           </div>
@@ -167,7 +181,33 @@ export default async function ProjectPage({
           <AnimatedSection>
             <div>
               <h2 className="text-sm font-semibold mb-3">Tech stack</h2>
-              <TechIconGrid technologies={project.technologies} />
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech) => {
+                  const exportName = 'si' + tech.icon.charAt(0).toUpperCase() + tech.icon.slice(1);
+                  const iconData = (icons as any)[exportName];
+                  return (
+                    <span
+                      key={tech.name}
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] text-xs text-black/70 dark:text-white/60"
+                    >
+                      {iconData && (
+                        <svg
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width="12"
+                          height="12"
+                          fill="currentColor"
+                          className="opacity-70 flex-shrink-0"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d={iconData.path} />
+                        </svg>
+                      )}
+                      {tech.name}
+                    </span>
+                  );
+                })}
+              </div>
             </div>
           </AnimatedSection>
         )}

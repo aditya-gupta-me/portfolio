@@ -55,8 +55,18 @@ export default function ProjectsPage() {
                       {project.title}
                     </h2>
                     <div className="flex items-center gap-2 flex-shrink-0">
-                      <span className="text-xs text-black/40 dark:text-white/40">
+                      <span className="flex items-center gap-1.5 text-xs text-black/40 dark:text-white/40">
                         {project.year}
+                        <span
+                          className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
+                            project.status === 'live'
+                              ? 'bg-green-500'
+                              : project.status === 'in-progress'
+                                ? 'bg-amber-400'
+                                : 'bg-black/20 dark:bg-white/20'
+                          }`}
+                          title={project.status}
+                        />
                       </span>
                       <i className="bx bx-right-arrow-alt text-black/50 dark:text-white/50 opacity-0 group-hover:opacity-100 transition-opacity"></i>
                     </div>
