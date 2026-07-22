@@ -12,7 +12,6 @@ export interface WorkEntry {
   endDate: string | "Present";
   technologies: Technology[];
   accomplishments: string[];
-  highlight: string;
 }
 
 export const workExperiences: WorkEntry[] = [
@@ -23,7 +22,6 @@ export const workExperiences: WorkEntry[] = [
     location: "Remote",
     startDate: "Oct 2025",
     endDate: "Mar 2026",
-    highlight: "YOUR_HIGHLIGHT_HERE",
     technologies: [
       { name: "React", icon: "react" },
       { name: "Python", icon: "python" },
@@ -46,7 +44,6 @@ export const workExperiences: WorkEntry[] = [
     location: "Australia",
     startDate: "Aug 2022",
     endDate: "Jan 2023",
-    highlight: "YOUR_HIGHLIGHT_HERE",
     technologies: [
       { name: "Davinci Resolve", icon: "davinciresolve" },
       { name: "MongoDB", icon: "mongodb" },
@@ -65,7 +62,6 @@ export const workExperiences: WorkEntry[] = [
     location: "Pune",
     startDate: "Dec 2021",
     endDate: "Feb 2022",
-    highlight: "YOUR_HIGHLIGHT_HERE",
     technologies: [
       { name: "WonderShare Filmora", icon: "wondersharefilmora" },
       { name: "Figma", icon: "figma" },
