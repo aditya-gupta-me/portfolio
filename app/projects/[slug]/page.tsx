@@ -50,25 +50,38 @@ export async function generateMetadata({
 
 // Status badge colours
 function StatusBadge({ status }: { status: 'live' | 'in-progress' | 'archived' }) {
-  const styles = {
-    live: 'border-green-500/25 bg-green-500/5 text-green-700 dark:text-green-400',
-    'in-progress': 'border-amber-500/25 bg-amber-500/5 text-amber-700 dark:text-amber-400',
-    archived: 'border-black/15 bg-black/5 text-black/50 dark:border-white/15 dark:bg-white/5 dark:text-white/50',
+  const statusConfig = {
+    live: {
+      dot: 'bg-green-500 animate-pulse',
+      text: 'text-green-700 dark:text-green-400',
+      border: 'border-green-500/25',
+      bg: 'bg-green-500/5',
+      label: 'Live',
+    },
+    'in-progress': {
+      dot: 'bg-amber-400',
+      text: 'text-amber-700 dark:text-amber-400',
+      border: 'border-amber-400/25',
+      bg: 'bg-amber-400/5',
+      label: 'In Progress',
+    },
+    archived: {
+      dot: 'bg-black/30 dark:bg-white/30',
+      text: 'text-black/50 dark:text-white/40',
+      border: 'border-black/10 dark:border-white/10',
+      bg: 'bg-black/[0.02] dark:bg-white/[0.02]',
+      label: 'Archived',
+    },
   };
-  const labels = {
-    live: 'Live',
-    'in-progress': 'In Progress',
-    archived: 'Archived',
-  };
+
+  const config = statusConfig[status];
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs w-fit ${styles[status]}`}
+      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs w-fit ${config.border} ${config.bg} ${config.text}`}
     >
-      {status === 'live' && (
-        <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse flex-shrink-0" />
-      )}
-      {labels[status]}
+      <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${config.dot}`} />
+      {config.label}
     </span>
   );
 }
@@ -105,8 +118,8 @@ export default async function ProjectPage({
             <h1 className="text-lg font-semibold">{project.title}</h1>
             <StatusBadge status={project.status} />
           </div>
-          <p className="text-xs text-black/40 dark:text-white/40">
-            {project.year} · {project.tech.join(' · ')}
+          <p className="text-xs text-black/40 dark:text-white/40 mt-1">
+            {project.year}
           </p>
         </div>
 
@@ -219,7 +232,7 @@ export default async function ProjectPage({
             {prevProject ? (
               <Link
                 href={`/projects/${prevProject.slug}`}
-                className="text-xs text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors"
+                className="text-xs text-black/40 dark:text-white/30 hover:text-black dark:hover:text-white transition-colors duration-150"
               >
                 ← {prevProject.title}
               </Link>
@@ -229,14 +242,14 @@ export default async function ProjectPage({
             {nextProject ? (
               <Link
                 href={`/projects/${nextProject.slug}`}
-                className="text-xs text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors"
+                className="text-xs text-black/40 dark:text-white/30 hover:text-black dark:hover:text-white transition-colors duration-150"
               >
                 {nextProject.title} →
               </Link>
             ) : (
               <Link
                 href="/projects"
-                className="text-xs text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors"
+                className="text-xs text-black/40 dark:text-white/30 hover:text-black dark:hover:text-white transition-colors duration-150"
               >
                 All projects →
               </Link>

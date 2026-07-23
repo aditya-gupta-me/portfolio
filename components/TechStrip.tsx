@@ -40,14 +40,19 @@ const stack = [
   { name: "Postman", slug: "postman" },
 ];
 
+const VISIBLE_COUNT = 12;
+
 export default function TechStrip() {
+  const visibleStack = stack.slice(0, VISIBLE_COUNT);
+  const hiddenCount = stack.length - VISIBLE_COUNT;
+
   return (
     <div>
       <p className="text-xs text-black/40 dark:text-white/40 mb-3">
         Technologies &amp; Frameworks
       </p>
       <div className="flex flex-wrap gap-2">
-        {stack.map((tech) => {
+        {visibleStack.map((tech) => {
           const exportName = 'si' + tech.slug.charAt(0).toUpperCase() + tech.slug.slice(1);
           const iconData = (icons as any)[exportName];
 
@@ -73,6 +78,11 @@ export default function TechStrip() {
             </span>
           );
         })}
+        {hiddenCount > 0 && (
+          <span className="text-xs text-black/40 dark:text-white/30 self-center">
+            +{hiddenCount} more
+          </span>
+        )}
       </div>
     </div>
   );

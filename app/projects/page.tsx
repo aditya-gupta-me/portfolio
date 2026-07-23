@@ -65,8 +65,9 @@ export default function ProjectsPage() {
                                 ? 'bg-amber-400'
                                 : 'bg-black/20 dark:bg-white/20'
                           }`}
-                          title={project.status}
+                          aria-hidden="true"
                         />
+                        <span className="sr-only">{project.status}</span>
                       </span>
                       <i className="bx bx-right-arrow-alt text-black/50 dark:text-white/50 opacity-0 group-hover:opacity-100 transition-opacity"></i>
                     </div>

@@ -76,7 +76,7 @@ export default function Footer() {
               <h3 className="text-xs font-semibold tracking-wider text-black/50 dark:text-white/50 uppercase">
                 Connect
               </h3>
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-3 gap-2">
                 {SOCIAL_LINKS.map((social) => (
                   <a
                     key={social.platform}

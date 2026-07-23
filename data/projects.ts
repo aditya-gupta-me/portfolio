@@ -79,6 +79,9 @@ export const projects: ProjectEntry[] = [
     tech: ['Python', 'Cryptography', 'Fernet', 'HTML'],
     technologies: [
       { name: 'Python', icon: 'python' },
+      { name: 'Cryptography', icon: 'cryptography' },
+      { name: 'Fernet', icon: 'fernet' },
+      { name: 'HTML', icon: 'html5' },
     ],
     images: ['/images/projects/transform-crypt/hero.png'],
     status: 'archived',
