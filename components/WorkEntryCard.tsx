@@ -3,7 +3,6 @@
 import { useState } from "react";
 import type { WorkEntry } from "@/data/work";
 import StatusBadge from "./StatusBadge";
-import TechIconGrid from "./TechIconGrid";
 import * as icons from "simple-icons";
 
 interface WorkEntryCardProps {
@@ -98,37 +97,33 @@ export default function WorkEntryCard({ entry, variant }: WorkEntryCardProps) {
                 <h3 className="text-xs font-semibold uppercase tracking-wider text-black/50 dark:text-white/50 mb-3">
                   Technologies & tools
                 </h3>
-                {isPreview ? (
-                  <TechIconGrid technologies={entry.technologies} />
-                ) : (
-                  <div className="flex flex-wrap gap-2">
-                    {entry.technologies.map((tech) => {
-                      const exportName = `si${tech.icon.charAt(0).toUpperCase()}${tech.icon.slice(1)}`;
-                      const iconData = (icons as any)[exportName];
-                      return (
-                        <span
-                          key={tech.name}
-                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] text-xs text-black/70 dark:text-white/60"
-                        >
-                          {iconData && (
-                            <svg
-                              role="img"
-                              viewBox="0 0 24 24"
-                              width="12"
-                              height="12"
-                              fill="currentColor"
-                              className="opacity-70 flex-shrink-0"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d={iconData.path} />
-                            </svg>
-                          )}
-                          {tech.name}
-                        </span>
-                      );
-                    })}
-                  </div>
-                )}
+                <div className="flex flex-wrap gap-2">
+                  {entry.technologies.map((tech) => {
+                    const exportName = `si${tech.icon.charAt(0).toUpperCase()}${tech.icon.slice(1)}`;
+                    const iconData = (icons as any)[exportName];
+                    return (
+                      <span
+                        key={tech.name}
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] text-xs text-black/70 dark:text-white/60"
+                      >
+                        {iconData && (
+                          <svg
+                            role="img"
+                            viewBox="0 0 24 24"
+                            width="12"
+                            height="12"
+                            fill="currentColor"
+                            className="opacity-70 flex-shrink-0"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d={iconData.path} />
+                          </svg>
+                        )}
+                        {tech.name}
+                      </span>
+                    );
+                  })}
+                </div>
               </div>
             )}
 

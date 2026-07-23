@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { label: "Blog", route: "/blog" },
   { label: "Resume", route: "/resume" },
   { label: "Work", route: "/work" },
+  { label: "Skills", route: "/skills" },
 ];
 
 const SOCIAL_LINKS = [
