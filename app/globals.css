@@ -317,3 +317,9 @@ body.dark .skill-card img {
     transform: none !important;
   }
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

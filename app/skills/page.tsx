@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import * as icons from 'simple-icons';
 import PageContainer from '@/components/PageContainer';
+import { AnimatedSection } from '@/components/AnimatedSection';
 import { skills, type SkillEntry } from '@/data/skills';
 
 export const metadata: Metadata = {
@@ -38,7 +39,7 @@ export default function SkillsPage() {
       <PageContainer>
         <div className="pb-12">
           {/* Page heading */}
-          <div className="mb-8">
+          <div className="mb-8 animate-fade-up" style={{ animationDelay: '0ms' }}>
             <h1 className="text-2xl font-bold">Skills</h1>
             <p className="text-sm text-black/50 dark:text-white/40 mt-1">
               A complete overview of the technologies and tools I work with.
@@ -55,11 +56,12 @@ export default function SkillsPage() {
               if (categorySkills.length === 0) return null;
 
               return (
-                <section key={category.key} className="mb-8">
-                  <p className="text-xs text-black/40 dark:text-white/30 mb-3">
-                    {category.label}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
+                <AnimatedSection key={category.key}>
+                  <section className="mb-8">
+                    <p className="text-xs text-black/40 dark:text-white/30 mb-3">
+                      {category.label}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
                     {categorySkills.map((tech) => {
                       const exportName = tech.slug
                         ? 'si' +
@@ -93,7 +95,8 @@ export default function SkillsPage() {
                       );
                     })}
                   </div>
-                </section>
+                  </section>
+                </AnimatedSection>
               );
             })}
           </div>

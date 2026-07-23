@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageContainer from "@/components/PageContainer";
 import WorkEntryCard from "@/components/WorkEntryCard";
+import { AnimatedSection } from "@/components/AnimatedSection";
 import { workExperiences } from "@/data/work";
 
 export const metadata: Metadata = {
@@ -39,7 +40,7 @@ export default function WorkPage() {
       <PageContainer>
         <div className="space-y-8 pb-12">
           {/* Header */}
-          <div>
+          <div className="animate-fade-up" style={{ animationDelay: '0ms' }}>
             <h1 className="text-lg font-semibold mb-2">Work Experience</h1>
             <p className="text-black/50 dark:text-white/50 text-sm">
               My work experiences across different companies and roles.
@@ -49,12 +50,14 @@ export default function WorkPage() {
           {/* Entries list */}
           <div className="flex flex-col">
             {workExperiences.map((entry, index) => (
-              <div key={`${entry.company}-${index}`}>
-                <WorkEntryCard entry={entry} variant="full" />
-                {index < workExperiences.length - 1 && (
-                  <hr className="my-6 border-black/10 dark:border-white/10" />
-                )}
-              </div>
+              <AnimatedSection key={`${entry.company}-${index}`}>
+                <div className="pt-2 pb-2">
+                  <WorkEntryCard entry={entry} variant="full" />
+                  {index < workExperiences.length - 1 && (
+                    <hr className="my-6 border-black/10 dark:border-white/10" />
+                  )}
+                </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import PageContainer from '@/components/PageContainer';
+import { AnimatedSection } from '@/components/AnimatedSection';
 
 // Set NEXT_PUBLIC_RESUME_DRIVE_ID in .env.local to enable the embed
 const DRIVE_FILE_ID = process.env.NEXT_PUBLIC_RESUME_DRIVE_ID;
@@ -43,10 +44,8 @@ export default function ResumePage() {
 
         {/* iframe container — only when DRIVE_FILE_ID is set */}
         {DRIVE_FILE_ID ? (
-          <div
-            className="relative w-full overflow-hidden rounded-lg border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] animate-fade-up"
-            style={{ animationDelay: '80ms' }}
-          >
+          <AnimatedSection>
+            <div className="relative w-full overflow-hidden rounded-lg border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03]">
             {/* Loading skeleton */}
             {!isLoaded && (
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-black/[0.02] dark:bg-white/[0.03] z-10">
@@ -64,10 +63,12 @@ export default function ResumePage() {
               onLoad={() => setIsLoaded(true)}
               title="Resume"
             />
-          </div>
+            </div>
+          </AnimatedSection>
         ) : (
           /* Empty state — when DRIVE_FILE_ID is not set */
-          <div className="flex flex-col items-center justify-center gap-2 py-24 text-center rounded-lg border border-dashed border-black/10 dark:border-white/10 animate-fade-up" style={{ animationDelay: '80ms' }}>
+          <AnimatedSection>
+            <div className="flex flex-col items-center justify-center gap-2 py-24 text-center rounded-lg border border-dashed border-black/10 dark:border-white/10">
             <p className="text-sm text-black/60 dark:text-white/50">
               Resume preview not configured.
             </p>
@@ -81,23 +82,26 @@ export default function ResumePage() {
                 .env.local
               </code>
             </p>
-          </div>
+            </div>
+          </AnimatedSection>
         )}
 
         {/* Mobile fallback */}
-        <p className="mt-3 text-center text-xs text-black/40 dark:text-white/30 animate-fade-up" style={{ animationDelay: '160ms' }}>
-          Having trouble viewing?{' '}
-          {DRIVE_FILE_ID && (
-            <a
-              href={`https://drive.google.com/file/d/${DRIVE_FILE_ID}/view`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline underline-offset-2 hover:text-black/70 dark:hover:text-white/60 transition-colors"
-            >
-              Open in Drive ↗
-            </a>
-          )}
-        </p>
+        <AnimatedSection>
+          <p className="mt-3 text-center text-xs text-black/40 dark:text-white/30">
+            Having trouble viewing?{' '}
+            {DRIVE_FILE_ID && (
+              <a
+                href={`https://drive.google.com/file/d/${DRIVE_FILE_ID}/view`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:text-black/70 dark:hover:text-white/60 transition-colors"
+              >
+                Open in Drive ↗
+              </a>
+            )}
+          </p>
+        </AnimatedSection>
       </div>
     </PageContainer>
   );
