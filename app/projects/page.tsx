@@ -48,7 +48,7 @@ export default function ProjectsPage() {
               <div key={project.slug} className="animate-fade-up" style={{ animationDelay: `${(index + 1) * 80}ms` }}>
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="group block py-4 transition-colors"
+                  className="group block py-4 px-4 -mx-4 rounded-lg hover:bg-black/[0.02] dark:hover:bg-white/[0.03] transition-colors"
                 >
                   <div className="flex justify-between items-start gap-4 mb-1">
                     <h2 className="text-sm font-semibold text-black/70 dark:text-white/70 group-hover:text-black dark:group-hover:text-white transition-colors">
@@ -63,7 +63,7 @@ export default function ProjectsPage() {
                               ? 'bg-green-500'
                               : project.status === 'in-progress'
                                 ? 'bg-amber-400'
-                                : 'bg-black/20 dark:bg-white/20'
+                                : 'bg-black/30 dark:bg-white/30'
                           }`}
                           aria-hidden="true"
                         />

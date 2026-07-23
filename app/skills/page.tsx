@@ -58,7 +58,7 @@ export default function SkillsPage() {
               return (
                 <AnimatedSection key={category.key}>
                   <section className="mb-8">
-                    <p className="text-xs text-black/40 dark:text-white/30 mb-3">
+                    <p className="text-xs text-black/40 dark:text-white/50 mb-3">
                       {category.label}
                     </p>
                     <div className="flex flex-wrap gap-2">
@@ -75,7 +75,7 @@ export default function SkillsPage() {
                       return (
                         <span
                           key={tech.name}
-                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] text-xs text-black/70 dark:text-white/60"
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-black/10 dark:border-white/15 bg-black/[0.02] dark:bg-white/[0.03] text-xs text-black/70 dark:text-white/60"
                         >
                           {iconData && (
                             <svg

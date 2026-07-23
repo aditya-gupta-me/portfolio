@@ -1,6 +1,6 @@
 export interface Technology {
   name: string;
-  icon: string; // The slug for simple-icons (e.g., 'react', 'nodedotjs', 'nextdotjs', 'typescript')
+  icon?: string; // The slug for simple-icons (e.g., 'react', 'nodedotjs', 'nextdotjs', 'typescript')
 }
 
 export interface WorkEntry {
@@ -29,9 +29,9 @@ export const workExperiences: WorkEntry[] = [
       { name: "FastAPI", icon: "fastapi" },
       { name: "Pydantic", icon: "pydantic" },
       { name: "MongoDB", icon: "mongodb" },
-      { name: "Pytest", icon: "pytest" },
+      { name: "Pytest" },
       { name: "Postman", icon: "postman" },
-      { name: "MCP", icon: "modelcontextprotocol" }
+      { name: "MCP" }
     ],
     accomplishments: [
       "Engineering a GenAI-powered chatbot service using Langchain and RAG to automate and improve response proficiency",

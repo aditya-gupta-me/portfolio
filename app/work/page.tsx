@@ -54,7 +54,7 @@ export default function WorkPage() {
                 <div className="pt-2 pb-2">
                   <WorkEntryCard entry={entry} variant="full" />
                   {index < workExperiences.length - 1 && (
-                    <hr className="my-6 border-black/10 dark:border-white/10" />
+                    <hr className="my-4 border-black/10 dark:border-white/10" />
                   )}
                 </div>
               </AnimatedSection>

@@ -151,7 +151,7 @@ export default async function ProjectPage({
 
         {/* 4. Hero image */}
         {project.images?.length > 0 && (
-          <div className="relative w-full max-h-[480px] overflow-hidden rounded-lg animate-fade-up" style={{ animationDelay: '240ms' }}>
+          <div className="relative w-full max-h-[480px] overflow-hidden rounded-lg animate-fade-up border border-black/10 dark:border-white/10" style={{ animationDelay: '240ms' }}>
             <Image
               src={project.images[0]}
               alt={`${project.title} screenshot`}
@@ -196,12 +196,12 @@ export default async function ProjectPage({
               <h2 className="text-sm font-semibold mb-3">Tech stack</h2>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => {
-                  const exportName = 'si' + tech.icon.charAt(0).toUpperCase() + tech.icon.slice(1);
-                  const iconData = (icons as any)[exportName];
+                  const exportName = tech.icon ? 'si' + tech.icon.charAt(0).toUpperCase() + tech.icon.slice(1) : null;
+                  const iconData = exportName ? (icons as any)[exportName] : null;
                   return (
                     <span
                       key={tech.name}
-                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] text-xs text-black/70 dark:text-white/60"
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-black/10 dark:border-white/15 bg-black/[0.02] dark:bg-white/[0.03] text-xs text-black/70 dark:text-white/60"
                     >
                       {iconData && (
                         <svg

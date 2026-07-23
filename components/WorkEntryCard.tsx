@@ -94,17 +94,17 @@ export default function WorkEntryCard({ entry, variant }: WorkEntryCardProps) {
             {/* Technologies */}
             {entry.technologies.length > 0 && (
               <div>
-                <h3 className="text-xs font-semibold uppercase tracking-wider text-black/50 dark:text-white/50 mb-3">
+                <h3 className="text-xs font-semibold text-black/50 dark:text-white/50 mb-3">
                   Technologies & tools
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {entry.technologies.map((tech) => {
-                    const exportName = `si${tech.icon.charAt(0).toUpperCase()}${tech.icon.slice(1)}`;
-                    const iconData = (icons as any)[exportName];
+                    const exportName = tech.icon ? `si${tech.icon.charAt(0).toUpperCase()}${tech.icon.slice(1)}` : null;
+                    const iconData = exportName ? (icons as any)[exportName] : null;
                     return (
                       <span
                         key={tech.name}
-                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] text-xs text-black/70 dark:text-white/60"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-black/10 dark:border-white/15 bg-black/[0.02] dark:bg-white/[0.03] text-xs text-black/70 dark:text-white/60"
                       >
                         {iconData && (
                           <svg
@@ -130,7 +130,7 @@ export default function WorkEntryCard({ entry, variant }: WorkEntryCardProps) {
             {/* Accomplishments */}
             {entry.accomplishments.length > 0 && (
               <div>
-                <h3 className="text-xs font-semibold uppercase tracking-wider text-black/50 dark:text-white/50 mb-3">
+                <h3 className="text-xs font-semibold text-black/50 dark:text-white/50 mb-3">
                   What I've done
                 </h3>
                 <ul className="list-disc pl-5 space-y-2 text-black/70 dark:text-white/70 text-sm leading-relaxed">
