@@ -40,7 +40,7 @@ export const projects: ProjectEntry[] = [
     status: 'live',
     liveUrl: 'https://code-hat.vercel.app/',
     repoUrl: 'https://github.com/aditya-gupta-me/CodeHat',
-    year: 2024,
+    year: 2023,
     featured: true,
   },
   {
@@ -86,7 +86,7 @@ export const projects: ProjectEntry[] = [
     images: ['/images/projects/transform-crypt/hero.png'],
     status: 'archived',
     repoUrl: 'https://github.com/aditya-gupta-me/transform-crypt',
-    year: 2024,
+    year: 2025,
     featured: false,
   },
   {

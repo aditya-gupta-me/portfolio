@@ -20,20 +20,22 @@ export const skills: SkillEntry[] = [
   { name: 'HTML5', slug: 'html5', category: 'languages', primary: false },
   { name: 'CSS3', slug: 'css', category: 'languages', primary: false },
   { name: 'Shell', slug: 'gnubash', category: 'languages', primary: false },
-  { name: 'SQL', category: 'languages', primary: false },
+  { name: 'SQL', slug: 'sqlite', category: 'languages', primary: false },
 
   // Frontend
   { name: 'React', slug: 'react', category: 'frontend', primary: true },
   { name: 'Next.js', slug: 'nextdotjs', category: 'frontend', primary: true },
   { name: 'Tailwind CSS', slug: 'tailwindcss', category: 'frontend', primary: true },
   { name: 'Material UI', slug: 'mui', category: 'frontend', primary: false },
-  { name: 'Recoil', category: 'frontend', primary: false },
+  { name: 'Recoil', slug: 'recoil', category: 'frontend', primary: false },
 
   // Backend
   { name: 'Node.js', slug: 'nodedotjs', category: 'backend', primary: true },
   { name: 'Express', slug: 'express', category: 'backend', primary: true },
-  { name: 'FastAPI', slug: 'fastapi', category: 'backend', primary: false },
   { name: 'Bun', slug: 'bun', category: 'backend', primary: false },
+  { name: 'Zod', slug: 'zod', category: 'backend', primary: false },
+  { name: 'FastAPI', slug: 'fastapi', category: 'backend', primary: false },
+  { name: 'Nginx', slug: 'nginx', category: 'backend', primary: false },
 
   // Database
   { name: 'PostgreSQL', slug: 'postgresql', category: 'database', primary: true },
@@ -42,8 +44,10 @@ export const skills: SkillEntry[] = [
 
   // Tools
   { name: 'Docker', slug: 'docker', category: 'tools', primary: false },
-  { name: 'Google Cloud', slug: 'googlecloud', category: 'tools', primary: false },
+  { name: 'Google Cloud Platform', slug: 'googlecloud', category: 'tools', primary: false },
   { name: 'Linux', slug: 'linux', category: 'tools', primary: false },
   { name: 'Postman', slug: 'postman', category: 'tools', primary: false },
-  { name: 'Cursor', category: 'tools', primary: false },
+  { name: 'Cursor', slug: 'cursor', category: 'tools', primary: false },
+  { name: 'Git', slug: 'git', category: 'tools', primary: false },
+  { name: 'GitHub', slug: 'github', category: 'tools', primary: false },
 ];

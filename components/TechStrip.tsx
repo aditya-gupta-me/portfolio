@@ -21,7 +21,7 @@ export default function TechStrip() {
           return (
             <span
               key={tech.name}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-black/10 dark:border-white/15 bg-black/[0.02] dark:bg-white/[0.03] text-xs text-black/70 dark:text-white/60"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-black/10 dark:border-white/15 bg-black/[0.02] dark:bg-white/[0.03] text-xs text-black/70 dark:text-white/60 hover:bg-black/[0.05] dark:hover:bg-white/[0.08] hover:text-black dark:hover:text-white transition-colors cursor-pointer"
             >
               {iconData && (
                 <svg

@@ -16,21 +16,22 @@ const neueHaas = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://adityaguptadev.me"),
   title: {
-    default: "Aditya Gupta - Full Stack Developer | MERN Stack & Java Developer",
+    default: "Aditya Gupta - Full Stack Developer",
     template: "%s | Aditya Gupta",
   },
   description:
-    "Aditya Gupta - MCA student at VIT Vellore specializing in full-stack development with MERN stack, competitive programming, and building scalable web applications.",
+    "Aditya Gupta - Full Stack Developer specializing in full-stack development with TypeScript, React.js, Node.js, Next.js, Postgre,SQL competitive programming, cloud technologies, and building scalable web applications.",
   keywords: [
     "Aditya Gupta",
     "Full Stack Developer",
     "MERN Stack",
-    "Java Developer",
+    "Next.js Developer",
+    "Frontend Developer",
+    "Backend Developer",
     "React Developer",
     "Node.js",
     "Competitive Programming",
     "Web Development",
-    "VIT Vellore",
     "Portfolio",
   ],
   authors: [{ name: "Aditya Gupta" }],
@@ -38,12 +39,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Aditya Gupta - Full Stack Developer Portfolio",
     description:
-      "MCA student at VIT Vellore specializing in MERN stack development, competitive programming, and building innovative web applications.",
+      "Aditya Gupta - Full Stack Developer specializing in full-stack development with TypeScript, React.js, Node.js, Next.js, Postgre,SQL competitive programming, cloud technologies, and building scalable web applications.",
     url: "https://adityaguptadev.me/",
     siteName: "Aditya Gupta Portfolio",
     images: [
       {
-        url: "/PP.jpg",
+        url: "/avatar.png",
         width: 800,
         height: 800,
         alt: "Aditya Gupta",
@@ -57,8 +58,8 @@ export const metadata: Metadata = {
     creator: "@heytheadee",
     title: "Aditya Gupta - Full Stack Developer Portfolio",
     description:
-      "MCA student at VIT Vellore specializing in MERN stack development and competitive programming.",
-    images: ["/PP.jpg"],
+      "Aditya Gupta - Full Stack Developer specializing in full-stack development with TypeScript, React.js, Node.js, Next.js, Postgre,SQL competitive programming, cloud technologies, and building scalable web applications.",
+    images: ["/avatar.png"],
   },
 };
 

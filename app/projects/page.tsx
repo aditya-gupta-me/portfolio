@@ -15,11 +15,13 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
+  const sortedProjects = [...projects].sort((a, b) => b.year - a.year);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'Projects',
-    itemListElement: projects.map((p, i) => ({
+    itemListElement: sortedProjects.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: p.title,
@@ -39,12 +41,12 @@ export default function ProjectsPage() {
           <div className="animate-fade-up" style={{ animationDelay: '0ms' }}>
             <h1 className="text-lg font-semibold mb-2">Projects</h1>
             <p className="text-black/50 dark:text-white/50 text-sm">
-              A showcase of things I&apos;ve built — web apps, tools, and experiments.
+              A showcase of things I&apos;ve built: web apps, tools, and experiments.
             </p>
           </div>
 
           <div className="flex flex-col">
-            {projects.map((project, index) => (
+            {sortedProjects.map((project, index) => (
               <div key={project.slug} className="animate-fade-up" style={{ animationDelay: `${(index + 1) * 80}ms` }}>
                 <Link
                   href={`/projects/${project.slug}`}
@@ -58,13 +60,12 @@ export default function ProjectsPage() {
                       <span className="flex items-center gap-1.5 text-xs text-black/40 dark:text-white/40">
                         {project.year}
                         <span
-                          className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
-                            project.status === 'live'
-                              ? 'bg-green-500'
-                              : project.status === 'in-progress'
-                                ? 'bg-amber-400'
-                                : 'bg-black/30 dark:bg-white/30'
-                          }`}
+                          className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${project.status === 'live'
+                            ? 'bg-green-500'
+                            : project.status === 'in-progress'
+                              ? 'bg-amber-400'
+                              : 'bg-black/30 dark:bg-white/30'
+                            }`}
                           aria-hidden="true"
                         />
                         <span className="sr-only">{project.status}</span>
@@ -79,7 +80,7 @@ export default function ProjectsPage() {
                     {project.tech.join(' · ')}
                   </p>
                 </Link>
-                {index < projects.length - 1 && (
+                {index < sortedProjects.length - 1 && (
                   <hr className="border-black/10 dark:border-white/10" />
                 )}
               </div>

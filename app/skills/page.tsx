@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import * as icons from 'simple-icons';
+import { Java } from "@dev.icons/react";
 import PageContainer from '@/components/PageContainer';
 import { AnimatedSection } from '@/components/AnimatedSection';
 import { skills, type SkillEntry } from '@/data/skills';
@@ -15,7 +16,7 @@ const categories: { key: SkillEntry['category']; label: string }[] = [
   { key: 'frontend', label: 'Frontend' },
   { key: 'backend', label: 'Backend' },
   { key: 'database', label: 'Database' },
-  { key: 'tools', label: 'Tools & DevOps' },
+  { key: 'tools', label: 'DevOps & Tools' },
 ];
 
 export default function SkillsPage() {
@@ -62,39 +63,39 @@ export default function SkillsPage() {
                       {category.label}
                     </p>
                     <div className="flex flex-wrap gap-2">
-                    {categorySkills.map((tech) => {
-                      const exportName = tech.slug
-                        ? 'si' +
+                      {categorySkills.map((tech) => {
+                        const exportName = tech.slug
+                          ? 'si' +
                           tech.slug.charAt(0).toUpperCase() +
                           tech.slug.slice(1)
-                        : null;
-                      const iconData = exportName
-                        ? (icons as any)[exportName]
-                        : null;
+                          : null;
+                        const iconData = exportName
+                          ? (icons as any)[exportName]
+                          : null;
 
-                      return (
-                        <span
-                          key={tech.name}
-                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-black/10 dark:border-white/15 bg-black/[0.02] dark:bg-white/[0.03] text-xs text-black/70 dark:text-white/60"
-                        >
-                          {iconData && (
-                            <svg
-                              role="img"
-                              viewBox="0 0 24 24"
-                              width="12"
-                              height="12"
-                              fill="currentColor"
-                              className="opacity-70 flex-shrink-0"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d={iconData.path} />
-                            </svg>
-                          )}
-                          {tech.name}
-                        </span>
-                      );
-                    })}
-                  </div>
+                        return (
+                          <span
+                            key={tech.name}
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-black/10 dark:border-white/15 bg-black/[0.02] dark:bg-white/[0.03] text-xs text-black/70 dark:text-white/60 hover:bg-black/[0.05] dark:hover:bg-white/[0.08] hover:text-black dark:hover:text-white transition-colors cursor-pointer"
+                          >
+                            {iconData && (
+                              <svg
+                                role="img"
+                                viewBox="0 0 24 24"
+                                width="12"
+                                height="12"
+                                fill="currentColor"
+                                className="opacity-70 flex-shrink-0"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path d={iconData.path} />
+                              </svg>
+                            )}
+                            {tech.name}
+                          </span>
+                        );
+                      })}
+                    </div>
                   </section>
                 </AnimatedSection>
               );
