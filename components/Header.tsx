@@ -52,10 +52,10 @@ export default function Header() {
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
             </svg>
           </button>
-          <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-black text-white dark:bg-white dark:text-black text-[10px] font-medium rounded opacity-0 group-hover/theme:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+          <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-black text-white dark:bg-white dark:text-black text-[10px] font-medium rounded opacity-0 group-hover/theme:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">
             <span className="hidden dark:inline">Light mode</span>
             <span className="inline dark:hidden">Dark mode</span>
-            <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-black dark:border-t-white"></span>
+            <span className="absolute bottom-full left-1/2 -translate-x-1/2 border-4 border-transparent border-b-black dark:border-b-white"></span>
           </span>
         </div>
       </div>
