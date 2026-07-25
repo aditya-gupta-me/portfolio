@@ -26,13 +26,12 @@ export async function generateMetadata({
   if (!project) return {};
 
   return {
-    // REPLACE: YOUR_NAME, YOUR_DOMAIN
-    title: `${project.title} — YOUR_NAME`,
+    title: `${project.title} — Aditya Gupta`,
     description: project.description,
     openGraph: {
       title: project.title,
       description: project.description,
-      url: `https://YOUR_DOMAIN/projects/${project.slug}`,
+      url: `https://www.adityaguptadev.me/projects/${project.slug}`,
       type: 'article',
       images:
         project.images?.length > 0

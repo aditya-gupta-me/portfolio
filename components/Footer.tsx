@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageContainer from "./PageContainer";
+import { siX } from "simple-icons";
 
 const NAV_LINKS = [
   { label: "Home", route: "/" },
@@ -17,7 +18,7 @@ const SOCIAL_LINKS = [
     url: "https://github.com/aditya-gupta-me",
   },
   {
-    platform: "X (Twitter)",
+    platform: "X",
     icon: "bxl-twitter",
     url: "https://x.com/heytheadee",
   },
@@ -87,7 +88,21 @@ export default function Footer() {
                     aria-label={social.platform}
                     className="flex items-center justify-center w-10 h-10 rounded-lg border border-black/10 dark:border-white/10 text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white hover:border-black/30 dark:hover:border-white/30 transition-all overflow-hidden"
                   >
-                    <i className={`bx ${social.icon} text-xl`}></i>
+                    {social.platform === "X" ? (
+                      <span className="inline-flex items-center justify-center w-5 h-5">
+                        <svg
+                          role="img"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="w-[14px] h-[14px]"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d={siX.path} />
+                        </svg>
+                      </span>
+                    ) : (
+                      <i className={`bx ${social.icon} text-xl`}></i>
+                    )}
                   </a>
                 ))}
               </div>

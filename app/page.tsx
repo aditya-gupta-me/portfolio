@@ -6,6 +6,7 @@ import CopyButton from "@/components/CopyButton";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import TechStrip from "@/components/TechStrip";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { siX } from 'simple-icons';
 
 import { projects } from "@/data/projects";
 import { workExperiences } from "@/data/work";
@@ -18,37 +19,18 @@ const workTech = workExperiences.flatMap((w) => w.technologies.map((t) => t.name
 const stripTech = ['TypeScript', 'React', 'Next.js', 'Node.js', 'PostgreSQL', 'Tailwind CSS']; // Tech strip list
 const uniqueSkills = Array.from(new Set([...projectTags, ...workTech, ...stripTech]));
 
-export const metadata: Metadata = {
-  // REPLACE: YOUR_NAME, YOUR_POSITIONING_STATEMENT, YOUR_LOCATION
-  title: 'Aditya Gupta - Full Stack Developer',
-  description: 'YOUR_POSITIONING_STATEMENT. Based in YOUR_LOCATION. Open to full-stack and frontend opportunities.',
-  openGraph: {
-    // REPLACE: YOUR_NAME, YOUR_POSITIONING_STATEMENT, YOUR_DOMAIN
-    title: 'YOUR_NAME — Full Stack Developer',
-    description: 'YOUR_POSITIONING_STATEMENT.',
-    url: 'https://YOUR_DOMAIN',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary',
-    // REPLACE: YOUR_NAME, YOUR_POSITIONING_STATEMENT
-    title: 'YOUR_NAME — Full Stack Developer',
-    description: 'YOUR_POSITIONING_STATEMENT.',
-  },
-};
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  // REPLACE: YOUR_NAME, YOUR_POSITIONING_STATEMENT, YOUR_DOMAIN, YOUR_SOCIAL_LINKS
-  name: "YOUR_NAME",
+  name: "Aditya Gupta",
   jobTitle: "Full Stack Developer",
-  description: "YOUR_POSITIONING_STATEMENT.",
-  image: "https://YOUR_DOMAIN/PP.jpg",
-  url: "https://YOUR_DOMAIN/",
+  description: "Open to full-stack and frontend opportunities.",
+  image: "https://www.adityaguptadev.me/avatar.png",
+  url: "https://www.adityaguptadev.me/",
   sameAs: [
-    "https://github.com/YOUR_GITHUB",
-    "https://linkedin.com/in/YOUR_LINKEDIN",
+    "https://github.com/aditya-gupta-me",
+    "https://linkedin.com/in/aditya-gupta-irl",
   ],
   hasOccupation: workExperiences.length > 0 ? {
     "@type": "Role",
@@ -109,8 +91,8 @@ export default function About() {
               { name: "GitHub", icon: "bxl-github", url: "https://github.com/aditya-gupta-me" },
               { name: "LinkedIn", icon: "bxl-linkedin", url: "https://linkedin.com/in/aditya-gupta-irl" },
               { name: "X", icon: "bxl-twitter", url: "https://x.com/heytheadee" },
-              { name: "Medium", icon: "bxl-medium", url: "https://medium.com/@YOUR_USERNAME" },
-              { name: "Stack Overflow", icon: "bxl-stack-overflow", url: "https://stackoverflow.com/users/YOUR_USER_ID" },
+              { name: "Medium", icon: "bxl-medium", url: "https://medium.com/@aditya-gupta-dev" },
+              { name: "Stack Overflow", icon: "bxl-stack-overflow", url: "https://stackoverflow.com/users/19718063/haptic?tab=profile" },
               { name: "Email", icon: "bx-envelope", url: "mailto:aditya.gupta.leads@gmail.com" },
             ].map((social) => (
               <a
@@ -121,7 +103,21 @@ export default function About() {
                 aria-label={social.name}
                 className="relative group/social text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors"
               >
-                <i className={`bx ${social.icon} text-xl`}></i>
+                {social.name === "X" ? (
+                  <span className="inline-flex items-center justify-center w-5 h-5">
+                    <svg
+                      role="img"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="w-[14px] h-[14px]"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d={siX.path} />
+                    </svg>
+                  </span>
+                ) : (
+                  <i className={`bx ${social.icon} text-xl`}></i>
+                )}
                 {/* CSS-only Tooltip */}
                 <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-black text-white dark:bg-white dark:text-black text-[10px] font-medium rounded opacity-0 group-hover/social:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
                   {social.name}
