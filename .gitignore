@@ -29,3 +29,5 @@ CNAME
 
 ANIMATION_AUDIT.md
 MIGRATION_NOTES.md
+
+tsconfig.tsbuildinfo
