@@ -34,8 +34,8 @@ export const workExperiences: WorkEntry[] = [
       { name: "MCP" }
     ],
     accomplishments: [
-      "Engineering a GenAI-powered chatbot service using Langchain and RAG to automate and improve response proficiency",
-      "Actively contributing to a high-priority GenAI project, applying new skills beyond core backend (Node.js) responsibilities",
+      "Engineered a GenAI pipeline using RAG and MCP for automated property queries, implementing a model orchestration system with fallback mechanisms that ensured 99.9% uptime.",
+      "Achieved < 1ms data retrieval latency by architecting an intelligent caching layer and collaborated cross-functionally to integrate GenAI features and enhance full-stack system resilience.",
     ],
   },
   {

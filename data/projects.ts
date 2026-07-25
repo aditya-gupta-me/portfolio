@@ -63,7 +63,7 @@ export const projects: ProjectEntry[] = [
     status: 'archived',
     repoUrl: 'https://github.com/aditya-gupta-me/heydoc',
     year: 2024,
-    featured: true,
+    featured: false,
   },
   {
     title: 'Transform Crypt',
@@ -112,6 +112,116 @@ export const projects: ProjectEntry[] = [
     liveUrl: 'https://sumnote-ai.netlify.app/',
     repoUrl: 'https://github.com/aditya-gupta-me/Sumnote.ai',
     year: 2025,
+    featured: false,
+  },
+
+  {
+    title: 'HealthHive',
+    slug: 'healthhive',
+    description:
+      'Full-stack medical web platform with role-based patient and doctor portals, prescription management, and an online pharmacy.',
+    fullDescription:
+      'HealthHive is a full-stack web application that brings patients, doctors, and medical services together in a single platform. Patients can browse a medical product catalogue, upload prescriptions, book appointments, and track orders through their own dashboard — while doctors manage consultation requests and patient records through a separate, role-gated interface.\n\nThe backend enforces role-based access control at the middleware level using JWT authentication, with tokens stored as cookies. Doctor-only routes are protected by dedicated role-checking middleware, and all sensitive actions — cart operations, order history, profile management — require a valid session. The data layer is handled by MongoDB through Mongoose, served by a Node.js/Express API.',
+    highlights: [
+      'Implemented role-based access control with JWT middleware, enforcing separate permission boundaries between patient and doctor routes',
+      'Built an online pharmacy with a full product catalogue, cart, checkout, and real-time order status tracking',
+      'Developed a prescription upload and validation flow integrated with health record and consultation history management',
+      'Created a doctor appointment booking and scheduling system with profile management across both user roles',
+    ],
+    tech: ['React', 'Express', 'Node.js', 'MongoDB', 'Tailwind CSS'],
+    technologies: [
+      { name: 'React', icon: 'react' },
+      { name: 'Express', icon: 'express' },
+      { name: 'Node.js', icon: 'nodedotjs' },
+      { name: 'MongoDB', icon: 'mongodb' },
+      { name: 'Tailwind CSS', icon: 'tailwindcss' },
+    ],
+    images: ['/images/projects/healthhive/hero.png'],
+    status: 'archived',
+    repoUrl: 'https://github.com/aditya-gupta-me/HealthHive',
+    year: 2025,
+    featured: false,
+  },
+  {
+    title: 'YouTube Trends',
+    slug: 'youtube-trends',
+    description:
+      'Real-time YouTube trending video explorer with multi-region support and category filtering.',
+    fullDescription:
+      'YouTube Trends is a React application that surfaces trending videos from the YouTube Data API v3, organised by region and content category. Users can filter trends across India, the US, the UK, and more, and narrow by category — Music, Gaming, Sports, and others — with direct links to each video on YouTube.\n\nThe frontend is built with React 19 and Vite for fast iteration and optimised production builds. A lightweight Express backend proxies requests to the YouTube API to keep credentials server-side and caches responses to reduce unnecessary quota consumption. The app ships with a dark/light mode toggle and is deployed on Vercel.',
+    highlights: [
+      'Integrated YouTube Data API v3 with multi-region trending support across India, US, UK, and additional regions',
+      'Built an Express proxy layer to keep API credentials server-side and reduce quota consumption through response caching',
+      'Implemented category filtering across Music, Gaming, Sports, and more, with a dark/light mode toggle built in Tailwind CSS and React 19',
+    ],
+    tech: ['React', 'Vite', 'Tailwind CSS', 'YouTube API', 'Express', 'Node.js'],
+    technologies: [
+      { name: 'React', icon: 'react' },
+      { name: 'Vite', icon: 'vite' },
+      { name: 'Tailwind CSS', icon: 'tailwindcss' },
+      { name: 'Express', icon: 'express' },
+      { name: 'Node.js', icon: 'nodedotjs' },
+    ],
+    images: ['/images/projects/youtube-trends/hero.png'],
+    status: 'live',
+    liveUrl: 'https://youtubetrending.vercel.app/',
+    repoUrl: 'https://github.com/aditya-gupta-me/YouTube-Trends',
+    year: 2025,
+    featured: false,
+  },
+  {
+    title: 'NextTutor',
+    slug: 'nexttutor',
+    description:
+      'Full-stack tutor discovery platform with geo-based search, session lifecycle management, and verified reviews.',
+    fullDescription:
+      'NextTutor is a full-stack tutor discovery platform — originally conceived collaboratively, and fully designed, architected, and built by me. Students find verified tutors nearby, book sessions, and leave reviews without asking around for recommendations.\n\nThe discovery experience is built around location: tutors define a service radius, and students search by subject, distance, price, and rating using Google Places autocomplete and PostGIS-powered geospatial queries in Supabase. The platform manages the complete session lifecycle — request, accept/decline, start, complete, cancel — with role-specific dashboards for both student and tutor views. Authentication uses Supabase Auth with magic link and phone OTP. Row-level security policies are enforced on every database table, ensuring users can only ever access data they are authorised to see.',
+    highlights: [
+      'Designed and built location-based tutor search using Google Places autocomplete, geocoding, and PostGIS distance queries against Supabase (PostgreSQL)',
+      'Implemented full session lifecycle management — request, accept/decline, start, complete, cancel — with separate dashboards for student and tutor roles',
+      'Set up Supabase Auth with magic link and phone OTP, and enforced row-level security (RLS) policies across every database table',
+      'Built a review system with star ratings, written reviews, a profanity filter, and helpful vote tracking',
+    ],
+    tech: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Google Maps API', 'Tailwind CSS'],
+    technologies: [
+      { name: 'Next.js', icon: 'nextdotjs' },
+      { name: 'TypeScript', icon: 'typescript' },
+      { name: 'Supabase', icon: 'supabase' },
+      { name: 'Tailwind CSS', icon: 'tailwindcss' },
+      { name: 'Google Maps', icon: 'googlemaps' },
+    ],
+    images: ['/images/projects/nexttutor/hero.png'],
+    status: 'live',
+    liveUrl: 'https://nexttutor.app/',
+    repoUrl: 'https://github.com/aditya-gupta-me/NextTutor',
+    year: 2026,
+    featured: true,
+  },
+  {
+    title: 'Prism',
+    slug: 'prism',
+    description:
+      'Browser-native cloud IDE with an autonomous AI coding agent, WebContainer execution sandbox, and GitHub integration.',
+    fullDescription:
+      'Prism is a browser-native cloud IDE and web application development platform — no local setup or terminal required. Projects run entirely in the browser through WebContainers, which boot a full Node.js development environment using WebAssembly, with a live preview panel and an embedded Xterm.js terminal. Code changes sync from the Convex real-time database directly into the WebContainer file system via hot-reload, without restarting the dev server.\n\nThe editor is built on CodeMirror 6 with multi-tab management (Zustand), minimap, indentation markers, and file breadcrumbs, backed by a hierarchical Convex file system. An autonomous AI coding agent — powered by Google Gemini through the Inngest Agent Kit — can read, create, modify, rename, and delete files across a project, and scrape external documentation via Firecrawl. Inline AI editing is available through a Quick Edit modal (Cmd+K) and real-time cursor suggestions. GitHub repositories can be imported or exported as resilient Inngest background jobs with full cancellation support.',
+    highlights: [
+      'Built an in-browser Node.js execution sandbox using WebContainers (WebAssembly) with Convex-to-filesystem hot-reload — no container reboots on file edits',
+      'Implemented an autonomous AI coding agent via Inngest Agent Kit and Google Gemini, with tools for file read/write/create/delete/rename and live documentation scraping through Firecrawl',
+      'Designed a CodeMirror 6 editor with Zustand-backed multi-tab management, minimap, indentation markers, and a hierarchical Convex-backed file system with full CRUD',
+      'Built GitHub repository import and export as resilient Inngest background jobs with full cancellation support, handling binary/text file separation and Convex blob storage',
+    ],
+    tech: ['Next.js', 'React', 'TypeScript', 'Convex', 'Inngest', 'Google Gemini', 'Clerk', 'CodeMirror'],
+    technologies: [
+      { name: 'Next.js', icon: 'nextdotjs' },
+      { name: 'React', icon: 'react' },
+      { name: 'TypeScript', icon: 'typescript' },
+      { name: 'Convex', icon: 'convex' },
+      { name: 'Clerk', icon: 'clerk' },
+    ],
+    images: ['/images/projects/prism/hero.png'],
+    status: 'in-progress',
+    repoUrl: 'https://github.com/aditya-gupta-me/Prism',
+    year: 2026,
     featured: true,
   },
 ];

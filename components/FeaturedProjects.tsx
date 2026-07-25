@@ -2,7 +2,10 @@ import Link from 'next/link';
 import { projects } from '@/data/projects';
 
 export default function FeaturedProjects() {
-  const featured = projects.filter((p) => p.featured).slice(0, 3);
+  const featured = projects
+    .filter((p) => p.featured)
+    .sort((a, b) => b.year - a.year)
+    .slice(0, 3);
   if (featured.length === 0) return null;
 
   return (

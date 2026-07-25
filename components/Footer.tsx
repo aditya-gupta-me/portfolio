@@ -29,12 +29,12 @@ const SOCIAL_LINKS = [
   {
     platform: "Medium",
     icon: "bxl-medium",
-    url: "https://medium.com/@aditya_placeholder",
+    url: "https://medium.com/@aditya-gupta-dev",
   },
   {
     platform: "Stack Overflow",
     icon: "bxl-stack-overflow",
-    url: "https://stackoverflow.com/users/placeholder",
+    url: "https://stackoverflow.com/users/19718063/haptic?tab=profile",
   },
   {
     platform: "Email",
