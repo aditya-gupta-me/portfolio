@@ -6,7 +6,7 @@ import { AnimatedSection } from '@/components/AnimatedSection';
 import { skills, type SkillEntry } from '@/data/skills';
 
 export const metadata: Metadata = {
-  title: 'Skills — YOUR_NAME',
+  title: 'Skills',
   description:
     'The full technical stack I work with — languages, frameworks, databases, and tools.',
 };

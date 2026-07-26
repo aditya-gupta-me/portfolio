@@ -29,9 +29,9 @@ export const workExperiences: WorkEntry[] = [
       { name: "FastAPI", icon: "fastapi" },
       { name: "Pydantic", icon: "pydantic" },
       { name: "MongoDB", icon: "mongodb" },
-      { name: "Pytest" },
+      { name: "Pytest", icon: "pytest" },
       { name: "Postman", icon: "postman" },
-      { name: "MCP" }
+      { name: "MCP", icon: "modelcontextprotocol" }
     ],
     accomplishments: [
       "Engineered a GenAI pipeline using RAG and MCP for automated property queries, implementing a model orchestration system with fallback mechanisms that ensured 99.9% uptime.",
@@ -40,14 +40,14 @@ export const workExperiences: WorkEntry[] = [
   },
   {
     company: "Contour Education",
-    role: "Video Editor Intern",
+    role: "Video Editor | Intern",
     type: "Remote",
     location: "Australia",
     startDate: "Aug 2022",
     endDate: "Jan 2023",
     technologies: [
       { name: "Davinci Resolve", icon: "davinciresolve" },
-      { name: "MongoDB", icon: "mongodb" },
+      { name: "Audacity", icon: "audacity" },
     ],
     accomplishments: [
       "Worked remotely with an international team in Australia, optimizing educational videos to enhance student engagement and learning efficiency.",
@@ -58,7 +58,7 @@ export const workExperiences: WorkEntry[] = [
   },
   {
     company: "Youth India Foundation",
-    role: "Head of Video Editing (Intern)",
+    role: "Head of Video Editing | Intern",
     type: "Remote",
     location: "Pune",
     startDate: "Dec 2021",
