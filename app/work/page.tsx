@@ -5,12 +5,12 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { workExperiences } from "@/data/work";
 
 export const metadata: Metadata = {
-  title: "Work Experience | Aditya Gupta",
+  title: "Work Experience",
   description:
     "A full overview of my professional work experience, roles, and the technologies I have worked with.",
   alternates: { canonical: "/work" },
   openGraph: {
-    title: "Work Experience | Aditya Gupta",
+    title: "Work Experience",
     description:
       "A full overview of my professional work experience, roles, and the technologies I have worked with.",
     url: "https://adityaguptadev.me/work",
