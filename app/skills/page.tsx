@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import * as icons from 'simple-icons';
-import { Java } from "@dev.icons/react";
 import PageContainer from '@/components/PageContainer';
 import { AnimatedSection } from '@/components/AnimatedSection';
 import { skills, type SkillEntry } from '@/data/skills';
