@@ -3,7 +3,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ThemeProvider from "@/components/ThemeProvider";
-import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 
@@ -136,7 +135,6 @@ export default function RootLayout({
           </main>
           <Footer />
         </ThemeProvider>
-        <Analytics />
         {/* umami for analytics */}
         <Script src="https://cloud.umami.is/script.js"
           data-website-id="5c8298b4-fce7-468d-8880-9afbb17ad24d"
