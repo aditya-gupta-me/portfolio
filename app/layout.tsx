@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import ThemeProvider from "@/components/ThemeProvider";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 
 const neueHaas = localFont({
   src: "../fonts/NeueHaasGrotesk-Medium.ttf",
@@ -136,6 +137,11 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
         <Analytics />
+        {/* umami for analytics */}
+        <Script src="https://cloud.umami.is/script.js"
+          data-website-id="5c8298b4-fce7-468d-8880-9afbb17ad24d"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
