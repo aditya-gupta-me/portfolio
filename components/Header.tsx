@@ -13,7 +13,7 @@ const NAV_LINKS = [
 
 export default function Header() {
   const pathname = usePathname();
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
 
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-sm bg-[#FAF9F7]/70 dark:bg-[#0a0a0a]/70 transition-colors duration-300">
@@ -41,7 +41,7 @@ export default function Header() {
           <button
             onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
             className="p-2 rounded-lg bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-colors text-black dark:text-white"
-            aria-label="Toggle theme"
+            aria-label={resolvedTheme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
           >
             {/* Sun icon for dark mode */}
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="hidden dark:block">
