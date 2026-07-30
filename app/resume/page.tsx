@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import PageContainer from '@/components/PageContainer';
 import { AnimatedSection } from '@/components/AnimatedSection';
+import { trackEvent } from '@/lib/analytics';
 
 // Set NEXT_PUBLIC_RESUME_DRIVE_ID in .env.local to enable the embed
 const DRIVE_FILE_ID = process.env.NEXT_PUBLIC_RESUME_DRIVE_ID;
@@ -25,6 +26,7 @@ export default function ResumePage() {
                 href={`https://drive.google.com/file/d/${DRIVE_FILE_ID}/view`}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent('resume_action', { action: 'open_in_drive' })}
                 className="inline-flex items-center gap-1 px-4 py-1.5 text-xs rounded-full border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
               >
                 Open in Drive ↗
@@ -34,6 +36,7 @@ export default function ResumePage() {
               <a
                 href="/resume.pdf"
                 download
+                onClick={() => trackEvent('resume_action', { action: 'download' })}
                 className="inline-flex items-center gap-1 px-4 py-1.5 text-xs rounded-full border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
               >
                 Download ↗
@@ -95,6 +98,7 @@ export default function ResumePage() {
                 href={`https://drive.google.com/file/d/${DRIVE_FILE_ID}/view`}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent('resume_action', { action: 'fallback_link' })}
                 className="underline underline-offset-2 hover:text-black/70 dark:hover:text-white/60 transition-colors"
               >
                 Open in Drive ↗

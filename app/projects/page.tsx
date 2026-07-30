@@ -51,6 +51,10 @@ export default function ProjectsPage() {
                 <Link
                   href={`/projects/${project.slug}`}
                   className="group block py-4 px-4 -mx-4 rounded-lg hover:bg-black/[0.02] dark:hover:bg-white/[0.03] transition-colors"
+                  data-umami-event="project_viewed"
+                  data-umami-event-slug={project.slug}
+                  data-umami-event-status={project.status}
+                  data-umami-event-source="projects_list"
                 >
                   <div className="flex justify-between items-start gap-4 mb-1">
                     <h2 className="text-sm font-semibold text-black/70 dark:text-white/70 group-hover:text-black dark:group-hover:text-white transition-colors">

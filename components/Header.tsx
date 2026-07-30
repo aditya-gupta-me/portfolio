@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
+import { trackEvent } from "@/lib/analytics";
 
 const NAV_LINKS = [
   { name: "Home", path: "/" },
@@ -25,6 +26,10 @@ export default function Header() {
               <Link
                 key={link.path}
                 href={link.path}
+                onClick={() => trackEvent('nav_clicked', {
+                  destination: link.name.toLowerCase(),
+                  location: 'header',
+                })}
                 className={`text-sm md:text-base font-medium transition-all ${
                   isActive
                     ? "text-black dark:text-white"

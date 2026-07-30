@@ -44,6 +44,9 @@ export default function TechStrip() {
           <Link
             href="/skills"
             className="text-xs text-black/40 dark:text-white/30 hover:text-black dark:hover:text-white transition-colors duration-150 self-center"
+            data-umami-event="cta_clicked"
+            data-umami-event-cta_id="skills_more"
+            data-umami-event-source_page="home"
           >
             +{hiddenCount} more →
           </Link>

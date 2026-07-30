@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { workExperiences } from "@/data/work";
 import WorkEntryCard from "./WorkEntryCard";
+import { trackEvent } from "@/lib/analytics";
 
 export default function ExperienceSection() {
   const previewExperiences = workExperiences.slice(0, 3);
@@ -24,6 +25,10 @@ export default function ExperienceSection() {
       <div className="mt-8 flex justify-center">
         <Link
           href="/work"
+          onClick={() => trackEvent('cta_clicked', {
+            cta_id: 'view_work_history',
+            source_page: 'home',
+          })}
           className="inline-flex items-center justify-center px-5 py-2 text-sm font-medium rounded-full border border-black/20 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
         >
           View full work history →

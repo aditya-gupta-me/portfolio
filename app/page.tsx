@@ -26,7 +26,7 @@ const jsonLd = {
   name: "Aditya Gupta",
   jobTitle: "Full Stack Developer",
   description: "Open to full-stack and frontend opportunities.",
-  image: "https://www.adityaguptadev.me/avatar.png",
+  image: "https://www.adityaguptadev.me/avatar.webp",
   url: "https://www.adityaguptadev.me/",
   sameAs: [
     "https://github.com/aditya-gupta-me",
@@ -57,7 +57,7 @@ export default function About() {
           <div className="flex items-start gap-4 animate-fade-up" style={{ animationDelay: '0ms' }}>
             <div className="w-24 h-24 flex-shrink-0">
               <Image
-                src="/avatar.png"
+                src="/avatar.webp"
                 alt="Aditya Gupta avatar"
                 width={96}
                 height={96}
@@ -88,12 +88,12 @@ export default function About() {
           {/* Social Icons Row */}
           <div className="flex flex-wrap items-center gap-5 mt-4 animate-fade-up" style={{ animationDelay: '160ms' }}>
             {[
-              { name: "GitHub", icon: "bxl-github", url: "https://github.com/aditya-gupta-me" },
-              { name: "LinkedIn", icon: "bxl-linkedin", url: "https://linkedin.com/in/aditya-gupta-irl" },
-              { name: "X", icon: "bxl-twitter", url: "https://x.com/heytheadee" },
-              { name: "Medium", icon: "bxl-medium", url: "https://medium.com/@aditya-gupta-dev" },
-              { name: "Stack Overflow", icon: "bxl-stack-overflow", url: "https://stackoverflow.com/users/19718063/haptic?tab=profile" },
-              { name: "Email", icon: "bx-envelope", url: "mailto:aditya.gupta.leads@gmail.com" },
+              { name: "GitHub", icon: "bxl-github", url: "https://github.com/aditya-gupta-me", platform: "github" },
+              { name: "LinkedIn", icon: "bxl-linkedin", url: "https://linkedin.com/in/aditya-gupta-irl", platform: "linkedin" },
+              { name: "X", icon: "bxl-twitter", url: "https://x.com/heytheadee", platform: "twitter" },
+              { name: "Medium", icon: "bxl-medium", url: "https://medium.com/@aditya-gupta-dev", platform: "medium" },
+              { name: "Stack Overflow", icon: "bxl-stack-overflow", url: "https://stackoverflow.com/users/19718063/haptic?tab=profile", platform: "stackoverflow" },
+              { name: "Email", icon: "bx-envelope", url: "mailto:aditya.gupta.leads@gmail.com", platform: "email" },
             ].map((social) => (
               <a
                 key={social.name}
@@ -102,6 +102,9 @@ export default function About() {
                 rel={social.url.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                 aria-label={social.name}
                 className="relative group/social text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors"
+                data-umami-event="social_clicked"
+                data-umami-event-platform={social.platform}
+                data-umami-event-location="hero"
               >
                 {social.name === "X" ? (
                   <span className="inline-flex items-center justify-center w-5 h-5">
