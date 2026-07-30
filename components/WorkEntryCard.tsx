@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { WorkEntry } from "@/data/work";
 import StatusBadge from "./StatusBadge";
 import * as icons from "simple-icons";
+import { trackEvent } from "@/lib/analytics";
 
 interface WorkEntryCardProps {
   entry: WorkEntry;
@@ -30,6 +31,15 @@ export default function WorkEntryCard({ entry, variant }: WorkEntryCardProps) {
     return end >= now;
   })();
 
+  const handleToggle = () => {
+    const newState = !isExpanded;
+    setIsExpanded(newState);
+    trackEvent(newState ? 'work_entry_expanded' : 'work_entry_collapsed', {
+      company: entry.company,
+      location: variant === 'preview' ? 'home' : 'work_page',
+    });
+  };
+
   return (
     <div className="group w-full py-4 transition-colors">
       {/* Header Row */}
@@ -43,7 +53,7 @@ export default function WorkEntryCard({ entry, variant }: WorkEntryCardProps) {
             {isCurrent && <StatusBadge />}
             {isPreview && (
               <button
-                onClick={() => setIsExpanded(!isExpanded)}
+                onClick={handleToggle}
                 className="inline-flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-200"
                 aria-label={isExpanded ? "Collapse details" : "Expand details"}
               >

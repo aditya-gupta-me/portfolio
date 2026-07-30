@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { projects } from '@/data/projects';
+import { TrackedLink } from '@/components/TrackedLink';
 
 export default function FeaturedProjects() {
   const featured = projects
@@ -14,7 +15,14 @@ export default function FeaturedProjects() {
       <div className="flex flex-col">
         {featured.map((project, index) => (
           <div key={project.title}>
-            <Link href={`/projects/${project.slug}`} className="group block py-4 transition-colors">
+            <Link
+              href={`/projects/${project.slug}`}
+              className="group block py-4 transition-colors"
+              data-umami-event="project_viewed"
+              data-umami-event-slug={project.slug}
+              data-umami-event-status={project.status}
+              data-umami-event-source="home_featured"
+            >
               <div className="flex justify-between items-start gap-4 mb-1">
                 <h3 className="text-sm font-semibold group-hover:text-black dark:group-hover:text-white transition-colors text-black/70 dark:text-white/70">
                   {project.title}
@@ -39,12 +47,14 @@ export default function FeaturedProjects() {
       </div>
       
       <div className="mt-8 flex justify-center">
-        <Link
+        <TrackedLink
           href="/projects"
+          eventName="cta_clicked"
+          eventData={{ cta_id: 'view_all_projects', source_page: 'home' }}
           className="inline-flex items-center justify-center px-5 py-2 text-sm font-medium rounded-full border border-black/20 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
         >
           View all projects →
-        </Link>
+        </TrackedLink>
       </div>
     </section>
   );

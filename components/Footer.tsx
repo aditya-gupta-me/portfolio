@@ -66,6 +66,9 @@ export default function Footer() {
                     key={link.route}
                     href={link.route}
                     className="text-sm font-medium text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white hover:underline underline-offset-4 decoration-black/20 dark:decoration-white/20 transition-all"
+                    data-umami-event="nav_clicked"
+                    data-umami-event-destination={link.label.toLowerCase()}
+                    data-umami-event-location="footer"
                   >
                     {link.label}
                   </Link>
@@ -87,6 +90,9 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     aria-label={social.platform}
                     className="flex items-center justify-center w-10 h-10 rounded-lg border border-black/10 dark:border-white/10 text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white hover:border-black/30 dark:hover:border-white/30 transition-all overflow-hidden"
+                    data-umami-event="social_clicked"
+                    data-umami-event-platform={social.platform.toLowerCase().replace(' ', '')}
+                    data-umami-event-location="footer"
                   >
                     {social.platform === "X" ? (
                       <span className="inline-flex items-center justify-center w-5 h-5">

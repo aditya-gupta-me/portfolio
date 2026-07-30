@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import PageContainer from '@/components/PageContainer';
 import { AnimatedSection } from '@/components/AnimatedSection';
+import { ScrollDepthTracker } from '@/components/ScrollDepthTracker';
 import { projects } from '@/data/projects';
 import * as icons from 'simple-icons';
 
@@ -106,6 +107,9 @@ export default async function ProjectPage({
           <Link
             href="/projects"
             className="inline-flex items-center gap-1 text-xs text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors"
+            data-umami-event="cta_clicked"
+            data-umami-event-cta_id="back_to_projects"
+            data-umami-event-source_page={`project_${project.slug}`}
           >
             ← Projects
           </Link>
@@ -131,6 +135,10 @@ export default async function ProjectPage({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 px-4 py-1.5 text-xs rounded-full border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                data-umami-event="project_cta_clicked"
+                data-umami-event-slug={project.slug}
+                data-umami-event-cta_type={isPackageUrl(project.liveUrl) ? 'view_package' : 'view_live'}
+                data-umami-event-status={project.status}
               >
                 {isPackageUrl(project.liveUrl) ? 'View package ↗' : 'View live ↗'}
               </a>
@@ -141,6 +149,10 @@ export default async function ProjectPage({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 px-4 py-1.5 text-xs rounded-full border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                data-umami-event="project_cta_clicked"
+                data-umami-event-slug={project.slug}
+                data-umami-event-cta_type="github"
+                data-umami-event-status={project.status}
               >
                 GitHub ↗
               </a>
@@ -232,6 +244,10 @@ export default async function ProjectPage({
               <Link
                 href={`/projects/${prevProject.slug}`}
                 className="text-xs text-black/40 dark:text-white/30 hover:text-black dark:hover:text-white transition-colors duration-150"
+                data-umami-event="project_navigated"
+                data-umami-event-direction="previous"
+                data-umami-event-from_slug={project.slug}
+                data-umami-event-to_slug={prevProject.slug}
               >
                 ← {prevProject.title}
               </Link>
@@ -242,6 +258,10 @@ export default async function ProjectPage({
               <Link
                 href={`/projects/${nextProject.slug}`}
                 className="text-xs text-black/40 dark:text-white/30 hover:text-black dark:hover:text-white transition-colors duration-150"
+                data-umami-event="project_navigated"
+                data-umami-event-direction="next"
+                data-umami-event-from_slug={project.slug}
+                data-umami-event-to_slug={nextProject.slug}
               >
                 {nextProject.title} →
               </Link>
@@ -249,12 +269,17 @@ export default async function ProjectPage({
               <Link
                 href="/projects"
                 className="text-xs text-black/40 dark:text-white/30 hover:text-black dark:hover:text-white transition-colors duration-150"
+                data-umami-event="cta_clicked"
+                data-umami-event-cta_id="all_projects"
+                data-umami-event-source_page={`project_${project.slug}`}
               >
                 All projects →
               </Link>
             )}
           </div>
         </AnimatedSection>
+
+        <ScrollDepthTracker pageType="project_detail" slug={project.slug} />
       </div>
     </PageContainer>
   );
