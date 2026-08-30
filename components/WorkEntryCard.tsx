@@ -141,7 +141,7 @@ export default function WorkEntryCard({ entry, variant }: WorkEntryCardProps) {
             {entry.accomplishments.length > 0 && (
               <div>
                 <h3 className="text-xs font-semibold text-black/50 dark:text-white/50 mb-3">
-                  What I've done
+                  What I&apos;ve done
                 </h3>
                 <ul className="list-disc pl-5 space-y-2 text-black/70 dark:text-white/70 text-sm leading-relaxed">
                   {entry.accomplishments.map((accomplishment, index) => (
