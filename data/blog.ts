@@ -12,6 +12,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'a-shot-at-explaining-the-transformer-architecture',
+    title: 'A Shot at Explaining the Transformer Architecture',
+    description:
+      'A beginner-friendly walkthrough of the Transformer architecture — covering encoders, decoders, and self-attention — without diving into the mathematics.',
+    mediumUrl: 'https://aditya-gupta-dev.medium.com/a-shot-at-explaining-the-transformer-architecture-31e151b817b9',
+    publishedAt: '2026-08-12',
+    readingTime: 7,
+    tags: ['Artificial Intelligence', 'Machine Learning', 'Deep Learning', 'NLP', 'LLM'],
+    featured: false,
+  },
+  {
     slug: 'why-i-migrated-my-portfolio-from-vite-react-to-nextjs',
     title: 'Why I Migrated My Portfolio from Vite + React to Next.js (and What I Learned)',
     description:

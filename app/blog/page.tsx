@@ -41,8 +41,10 @@ function FeaturedArticleBlock({
               group-hover:opacity-70
               transition-opacity duration-150
               mb-2
+              flex items-center gap-1.5
             "
           >
+            <i className="bx bxs-pin text-sm text-black/30 dark:text-white/30 shrink-0" aria-hidden="true"></i>
             {post.title}
           </h2>
         </a>
@@ -138,9 +140,24 @@ function CompactArticleRow({
           {post.description}
         </p>
 
-        <p className="text-xs text-black/35 dark:text-white/35">
+        <p className="text-xs text-black/35 dark:text-white/35 mb-3">
           {post.tags.join(' · ')}&nbsp;·&nbsp;{post.readingTime} min read
         </p>
+
+        <span
+          className="
+            inline-flex items-center gap-1
+            rounded-full border border-black/15 dark:border-white/15
+            px-4 py-1.5
+            text-xs text-black/70 dark:text-white/70
+            group-hover:border-black/30 dark:group-hover:border-white/30
+            group-hover:text-black dark:group-hover:text-white
+            transition-all duration-150
+          "
+        >
+          Read on Medium
+          <span aria-hidden="true">↗</span>
+        </span>
       </a>
 
       {!isLast && (
